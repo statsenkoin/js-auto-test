@@ -1,12 +1,17 @@
 function checkForSpam(message) {
-  let result = false;
+  let result;
   // Change code below this line
 
-  if (
+  // result = false;
+  // if (
+  //   message.toLowerCase().includes('spam') ||
+  //   message.toLowerCase().includes('sale')
+  // )
+  //   result = true;
+
+  result =
     message.toLowerCase().includes('spam') ||
-    message.toLowerCase().includes('sale')
-  )
-    result = true;
+    message.toLowerCase().includes('sale');
 
   // Change code above this line
   return result;
