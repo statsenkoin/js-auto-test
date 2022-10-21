@@ -7,8 +7,8 @@ console.log('Hello, Console!');
 // ----- alert() ---------------------
 
 // Виводить модальне вікно-повідомлення
-const message = 'JavaScript is awesome!';
-alert(message);
+// const message = 'JavaScript is awesome!';
+// alert(message);
 
 // ----- confirm() ------------------
 
