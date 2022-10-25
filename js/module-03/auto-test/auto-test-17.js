@@ -63,7 +63,5 @@ for (let color of colors) {
 // // -------------------------------------------------
 console.log(hexColors);
 console.log(rgbColors);
-// // console.log(keys);
-// // console.log(values);
 
 // -----------------------------------------------------
