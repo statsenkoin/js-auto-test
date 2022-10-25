@@ -150,17 +150,19 @@
 // else if (input === 'Я админ') console.log('Здравствуйте!');
 // else input = console.log('Неверный пароль');
 
-const animal = {
-  legs: 4,
-};
-const dog = Object.create(animal);
-dog.name = 'Манго';
+// --------------------------------------------------
 
-// for (const key in dog) {
-//   console.log(key, dog[key]);
-console.log(Object.entries(dog));
-//   console.log(dog[key]);
-// }
-// console.log(dog); // {name: 'Манго'}
-// console.log(dog.name); // 'Манго'
-// console.log(dog.legs); // 4
+// const animal = {
+//   legs: 4,
+// };
+// const dog = Object.create(animal);
+// dog.name = 'Манго';
+
+// // for (const key in dog) {
+// //   console.log(key, dog[key]);
+// console.log(Object.entries(dog));
+// //   console.log(dog[key]);
+// // }
+// // console.log(dog); // {name: 'Манго'}
+// // console.log(dog.name); // 'Манго'
+// // console.log(dog.legs); // 4
