@@ -2,7 +2,7 @@
 
 'use strict';
 
-console.log('Hello, Console!');
+// console.log('Hello, Console!');
 
 // ----- alert() ---------------------
 
@@ -25,3 +25,35 @@ console.log('Hello, Console!');
 // OK повертає рядок - те, що ввів користувач, Cancel - null
 // const hotelName = prompt('Please enter desired hotel name');
 // console.log(hotelName);
+
+// --------------------------------------------------------
+// --------------------------------------------------------
+
+// Напишіть 3 цикла:
+// 1й цикл: выводить в консоль числа від max до min по зменшеню (убыванию).
+// const max = 50;
+// const min = 23;
+
+// for (let i = max; i >= min; i -= 1) {
+//   console.log(i);
+// }
+
+// 2й цикл: виводить в консоль усі парні (четные) числа від min до max.
+// const max = 50;
+// const min = 23;
+
+// for (let i = min; i <= max; i += 1) {
+//   if (i % 2 === 0) console.log(i);
+// }
+
+// 3й цикл: виводить в консоль суму усіх парних (четных) чисел від min до max
+const max = 50;
+const min = 23;
+
+let sum = 0;
+for (let i = min; i <= max; i += 1) {
+  if (i % 2 === 0) {
+    sum += i;
+  }
+}
+console.log(sum);
