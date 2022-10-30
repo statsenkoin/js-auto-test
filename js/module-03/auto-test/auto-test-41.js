@@ -181,6 +181,7 @@ const atTheOldToad = {
   },
 
   getPotions() {
+    // console.table(this.potions);
     return this.potions;
   },
 
@@ -218,20 +219,20 @@ const atTheOldToad = {
 // ============================================================================
 
 // ----------------------------------------------------------------
-// console.log(atTheOldToad.getPotions());
-// [
-//   { name: 'Speed potion', price: 460 },
-//   { name: 'Dragon breath', price: 780 },
-//   { name: 'Stone skin', price: 520 },
-// ];
+console.log(atTheOldToad.getPotions());
+[
+  { name: 'Speed potion', price: 460 },
+  { name: 'Dragon breath', price: 780 },
+  { name: 'Stone skin', price: 520 },
+];
 // console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
 // console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }));
 // console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 }));
 // console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 240 }));
 
-console.log(atTheOldToad.removePotion('Dragon breath'));
-console.log(atTheOldToad.removePotion('Dragon breath'));
-console.log(atTheOldToad.removePotion('Speed potion'));
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+// console.log(atTheOldToad.removePotion('Speed potion'));
 
 // console.log(atTheOldToad.updatePotionName('Dragon breath', 'Polymorth'));
 // console.log(
