@@ -136,15 +136,15 @@ js const numbers = [2, 17, 94, 1, 23, 37];
    let min; console.log(min); // 1
 */
 
-const numbers = [2, 17, 94, 1, 23, 37];
-let min = numbers[0];
-// for (i = 0; i < numbers.length; i += 1) {
-//   if (numbers[i] < min) min = numbers[i];
+// const numbers = [2, 17, 94, 1, 23, 37];
+// let min = numbers[0];
+// // for (i = 0; i < numbers.length; i += 1) {
+// //   if (numbers[i] < min) min = numbers[i];
+// // }
+// for (const number of numbers) {
+//   if (number < min) min = number;
 // }
-for (const number of numbers) {
-  if (number < min) min = number;
-}
-console.log(min); // 1
+// console.log(min); // 1
 
 /** ============================================================================
     Модуль 2. Заняття 4. Функції
@@ -156,6 +156,13 @@ console.log(min); // 1
 
 Індекс маси тіла необхідно округлити до однієї цифри після коми;
 */
+
+function calcBMI(weight, height) {
+  return weight / (height * height);
+}
+
+console.log(calcBMI(80, 1.8).toFixed(1));
+console.log(calcBMI(60, 1.72).toFixed(1));
 
 /** Example 2 - Найменше з чисел
 Напиши функцію min(a,b), яка повертає менше з чисел a та b.
