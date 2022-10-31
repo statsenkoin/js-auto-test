@@ -157,12 +157,12 @@ js const numbers = [2, 17, 94, 1, 23, 37];
 Індекс маси тіла необхідно округлити до однієї цифри після коми;
 */
 
-function calcBMI(weight, height) {
-  return weight / (height * height);
-}
+// function calcBMI(weight, height) {
+//   return weight / (height * height);
+// }
 
-console.log(calcBMI(80, 1.8).toFixed(1));
-console.log(calcBMI(60, 1.72).toFixed(1));
+// console.log(calcBMI(80, 1.8).toFixed(1));
+// console.log(calcBMI(60, 1.72).toFixed(1));
 
 /** Example 2 - Найменше з чисел
 Напиши функцію min(a,b), яка повертає менше з чисел a та b.
@@ -171,6 +171,14 @@ js  console.log(min(2, 5));  // 2
     console.log(min(3, -1)); // -1 
     console.log(min(1, 1));  // 1
 */
+
+// function min(a, b) {
+//   return Math.min(a, b);
+// }
+
+// console.log(min(2, 5)); // 2
+// console.log(min(3, -1)); // -1
+// console.log(min(1, 1)); // 1
 
 /** Example 3 - Площа прямокутника
 Напиши функцію getRectArea(dimensions) для обчислення площі прямокутника зі 
