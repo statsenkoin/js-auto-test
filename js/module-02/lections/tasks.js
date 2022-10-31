@@ -309,18 +309,18 @@ console.log(formatTime(450)); // "07:30"
 console.log(formatTime(1441)); // "24:01" ``
 */
 
-function formatTime(minutes) {
-  const dHours = Math.floor(minutes / 60);
-  const dMinutes = minutes % 60;
-  const strHours = String(dHours).padStart(2, 0);
-  const strMinutes = String(dMinutes).padStart(2, 0);
+// function formatTime(minutes) {
+//   const dHours = Math.floor(minutes / 60);
+//   const dMinutes = minutes % 60;
+//   const strHours = String(dHours).padStart(2, 0);
+//   const strMinutes = String(dMinutes).padStart(2, 0);
 
-  console.log(`${strHours}:${strMinutes}`);
-}
+//   console.log(`${strHours}:${strMinutes}`);
+// }
 
-console.log(formatTime(70)); // "01:10"
-console.log(formatTime(450)); // "07:30"
-console.log(formatTime(1441)); // "24:01"
+// console.log(formatTime(70)); // "01:10"
+// console.log(formatTime(450)); // "07:30"
+// console.log(formatTime(1441)); // "24:01"
 
 /** Example 9 - Колекція курсів (includes, indexOf, push і т.д.)
 Напишіть функції для роботи з колекцією навчальних курсів courses:
@@ -328,6 +328,7 @@ console.log(formatTime(1441)); // "24:01"
 addCourse(name) - додає курс до кінця колекції
 removeCourse(name) - видаляє курс з колекції
 updateCourse(oldName, newName) - змінює ім'я на нове
+
 ``js const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 
 addCourse('Express'); console.log(courses); 
@@ -341,3 +342,43 @@ removeCourse('Vue');
 updateCourse('Express', 'NestJS'); console.log(courses); 
 // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'NestJS'] ``
 */
+
+const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+
+function addCourse(name) {
+  if (!courses.includes(name)) {
+    return courses.push(name);
+  }
+  console.log('У вас вже є такий курс');
+}
+
+function removeCourse(name) {
+  if (!courses.includes(name)) {
+    console.log('Курс з таким іменем не знайдено');
+    return;
+  }
+  courses.splice(courses.indexOf(name), 1);
+}
+
+function updateCourse(oldName, newName) {
+  if (!courses.includes(oldName)) {
+    console.log(`Курс з іменем ${oldName} не знайдено`);
+    return;
+  }
+
+  courses.splice(courses.indexOf(oldName), 1, newName);
+}
+
+addCourse('Express');
+console.log(courses);
+// ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
+addCourse('CSS');
+// 'У вас вже є такий курс'
+removeCourse('React');
+console.log(courses);
+// ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'Express']
+removeCourse('Vue');
+// 'Курс з таким іменем не знайдено'
+updateCourse('Express', 'NestJS');
+console.log(courses);
+// ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'NestJS']
