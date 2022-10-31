@@ -210,14 +210,14 @@ console.log(getRectArea('8 11')); ``
 logItems(['Mango', 'Poly', 'Ajax']); logItems(['🍎', '🍇', '🍑', '🍌', '🍋']); ``
 */
 
-function logItems(items) {
-  for (i = 0; i < items.length; i += 1) {
-    console.log(`${i + 1} - ${items[i]}`);
-  }
-}
+// function logItems(items) {
+//   for (i = 0; i < items.length; i += 1) {
+//     console.log(`${i + 1} - ${items[i]}`);
+//   }
+// }
 
-logItems(['Mango', 'Poly', 'Ajax']);
-logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
+// logItems(['Mango', 'Poly', 'Ajax']);
+// logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
 
 /** Example 5 - Логування контактів
 Напиши функцію printContactsInfo(names, phones) яка виводить у консоль ім'я та 
@@ -230,6 +230,19 @@ logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
 printContactsInfo( 'Jacob, William, Solomon, Artemis', 
                     '89001234567,89001112233,890055566377,890055566300', ); ``
 */
+
+function printContactsInfo(names, phones) {
+  const namesArr = names.split(', ');
+  const phonesArr = phones.split(',');
+  for (const name of namesArr) {
+    console.log(`${name}: ${phonesArr[namesArr.indexOf(name)]}`);
+  }
+}
+
+printContactsInfo(
+  'Jacob, William, Solomon, Artemis',
+  '89001234567,89001112233,890055566377,890055566300'
+);
 
 /** Example 6 - Пошук найбільшого елемента
 Напиши функцію findLargestNumber(numbers) яка шукає найбільше число в масиві.
