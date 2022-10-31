@@ -47,13 +47,13 @@
 // }
 
 // 3й цикл: виводить в консоль суму усіх парних (четных) чисел від min до max
-const max = 50;
-const min = 23;
+// const max = 50;
+// const min = 23;
 
-let sum = 0;
-for (let i = min; i <= max; i += 1) {
-  if (i % 2 === 0) {
-    sum += i;
-  }
-}
-console.log(sum);
+// let sum = 0;
+// for (let i = min; i <= max; i += 1) {
+//   if (i % 2 === 0) {
+//     sum += i;
+//   }
+// }
+// console.log(sum);
