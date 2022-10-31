@@ -114,10 +114,10 @@ js const string = 'Welcome to the future';
 js const string = 'Welcome to the future';
 */
 
-const string = 'Welcome to the future';
-// const strArr = string.split(' ');
-// console.log(strArr.reverse());
-console.log(string.split('').reverse().join(''));
+// const string = 'Welcome to the future';
+// // const strArr = string.split(' ');
+// // console.log(strArr.reverse());
+// console.log(string.split('').reverse().join(''));
 
 /** Example 7 - Сортування масиву
 Напиши скрипт сортування масиву.
@@ -125,12 +125,20 @@ console.log(string.split('').reverse().join(''));
 js const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
 */
 
+// const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
+// console.log(langs.sort());
+
 /** Example 8 - Пошук елемента
 Напиши скрипт пошуку найменшого числа у масиві. Код повинен працювати для 
 будь-якого масиву чисел. Використовуй цикл для розв'язання задачі.
 
-js const numbers = [2, 17, 94, 1, 23, 37]; let min; console.log(min); // 1
+js const numbers = [2, 17, 94, 1, 23, 37]; 
+   let min; console.log(min); // 1
 */
+
+const numbers = [2, 17, 94, 1, 23, 37];
+let min;
+console.log(min); // 1
 
 /** ============================================================================
     Модуль 2. Заняття 4. Функції
