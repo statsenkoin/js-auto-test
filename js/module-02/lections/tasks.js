@@ -210,6 +210,15 @@ console.log(getRectArea('8 11')); ``
 logItems(['Mango', 'Poly', 'Ajax']); logItems(['🍎', '🍇', '🍑', '🍌', '🍋']); ``
 */
 
+function logItems(items) {
+  for (i = 0; i < items.length; i += 1) {
+    console.log(`${i + 1} - ${items[i]}`);
+  }
+}
+
+logItems(['Mango', 'Poly', 'Ajax']);
+logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
+
 /** Example 5 - Логування контактів
 Напиши функцію printContactsInfo(names, phones) яка виводить у консоль ім'я та 
 телефонний номер користувача. У параметри names та phones будуть передані рядки 
