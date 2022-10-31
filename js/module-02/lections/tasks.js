@@ -12,14 +12,14 @@ Example 1 - Базові операції з масивом
 js const genres =;
 */
 
-const genres = ['Jass', 'Blues'];
-genres.push('Рок-н-рол');
-console.log(genres[0]);
-console.log(genres[genres.length - 1]);
-console.log(genres.shift());
-genres.unshift('Country', 'Reggae');
+// const genres = ['Jass', 'Blues'];
+// genres.push('Рок-н-рол');
+// console.log(genres[0]);
+// console.log(genres[genres.length - 1]);
+// console.log(genres.shift());
+// genres.unshift('Country', 'Reggae');
 
-console.log(genres);
+// console.log(genres);
 
 /** Example 2 - Масиви та рядки
 Напиши скрипт для обчислення площі прямокутника зі сторонами, значення яких 
@@ -27,6 +27,13 @@ console.log(genres);
 
 js const values = '8 11';
 */
+
+// const values = '8 11';
+
+// const valuesArr = values.split(' ');
+// console.log(valuesArr);
+// const square = valuesArr[0] * valuesArr[1];
+// console.log(square);
 
 /** Example 3 - Перебір масиву
 Напиши скрипт для перебору масиву fruits циклом for. Для кожного елемента 
