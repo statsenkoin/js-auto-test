@@ -276,18 +276,18 @@ console.log(calAverage(14, 8, 2)); // 8
 console.log(calAverage(27, 43, 2, 8, 36)); // 23.2 ``
 */
 
-function calAverage(...args) {
-  console.log(args);
-  let sum = 0;
-  for (const arg of args) {
-    sum += arg;
-  }
-  return sum / args.length;
-}
+// function calAverage(...args) {
+//   console.log(args);
+//   let sum = 0;
+//   for (const arg of args) {
+//     sum += arg;
+//   }
+//   return sum / args.length;
+// }
 
-console.log(calAverage(1, 2, 3, 4)); // 2.5
-console.log(calAverage(14, 8, 2)); // 8
-console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
+// console.log(calAverage(1, 2, 3, 4)); // 2.5
+// console.log(calAverage(14, 8, 2)); // 8
+// console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
 
 /** Example 8 - Форматування часу
 Напиши функцію formatTime(minutes) яка переведе значення minutes (кількість хвилин) 
@@ -308,6 +308,19 @@ console.log(formatTime(70)); // "01:10"
 console.log(formatTime(450)); // "07:30" 
 console.log(formatTime(1441)); // "24:01" ``
 */
+
+function formatTime(minutes) {
+  const dHours = Math.floor(minutes / 60);
+  const dMinutes = minutes % 60;
+  const strHours = String(dHours).padStart(2, 0);
+  const strMinutes = String(dMinutes).padStart(2, 0);
+
+  console.log(`${strHours}:${strMinutes}`);
+}
+
+console.log(formatTime(70)); // "01:10"
+console.log(formatTime(450)); // "07:30"
+console.log(formatTime(1441)); // "24:01"
 
 /** Example 9 - Колекція курсів (includes, indexOf, push і т.д.)
 Напишіть функції для роботи з колекцією навчальних курсів courses:
