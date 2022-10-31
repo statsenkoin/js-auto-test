@@ -60,11 +60,12 @@ js const names = 'Jacob, William, Solomon, Artemis';
 const phones = '89001234567,89001112233,890055566377,890055566300';
 */
 
-const names = 'Jacob,William,Solomon,Artemis';
-const phones = '89001234567,89001112233,89005566377,89005566300';
+// ------------------------------------------------------------------
+// const names = 'Jacob,William,Solomon,Artemis';
+// const phones = '89001234567,89001112233,89005566377,89005566300';
 
-const arrNames = names.split(',');
-let arrPhones = phones.split(',');
+// const arrNames = names.split(',');
+// let arrPhones = phones.split(',');
 // console.log(arrNames, arrPhones);
 // for (const name of arrNames) {
 //   console.log(
@@ -73,20 +74,27 @@ let arrPhones = phones.split(',');
 //     }`
 //   );
 // }
-const pArr = [];
-for (let phone of arrPhones) {
-  const phoneArr = phone.split('');
-  phoneArr.splice(4, 0, ')');
-  phoneArr.splice(1, 0, '(');
-  phoneArr.splice(-7, 0, '-');
-  phoneArr.splice(-4, 0, '-');
-  phoneArr.splice(-2, 0, '-');
-  pArr.push(phoneArr.join(''));
-  //   console.log(pArr);
-}
-for (let i = 0; i < arrNames.length; i++) {
-  console.log(`${i + 1}: ${arrNames[i]} - ${pArr[i]}`);
-}
+
+// ------------------------------------------------------------------
+// const names = 'Jacob,William,Solomon,Artemis';
+// const phones = '89001234567,89001112233,89005566377,89005566300';
+
+// const arrNames = names.split(',');
+// let arrPhones = phones.split(',');
+// const pArr = [];
+// for (let phone of arrPhones) {
+//   const phoneArr = phone.split('');
+//   phoneArr.splice(4, 0, ')');
+//   phoneArr.splice(1, 0, '(');
+//   phoneArr.splice(-7, 0, '-');
+//   phoneArr.splice(-4, 0, '-');
+//   phoneArr.splice(-2, 0, '-');
+//   pArr.push(phoneArr.join(''));
+//   //   console.log(pArr);
+// }
+// for (let i = 0; i < arrNames.length; i++) {
+//   console.log(`${i + 1}: ${arrNames[i]} - ${pArr[i]}`);
+// }
 
 /** Example 5 - Масиви та рядки
 Напиши скрипт який виводить у консоль усі слова рядка окрім першого та останнього. 
