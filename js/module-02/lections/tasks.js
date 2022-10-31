@@ -190,6 +190,13 @@ js  console.log(min(2, 5));  // 2
 console.log(getRectArea('8 11')); ``
 */
 
+// function getRectArea(dimensions) {
+//   const dimArr = dimensions.split(' ');
+//   return dimArr[0] * dimArr[1];
+// }
+
+// console.log(getRectArea('8 11'));
+
 /** Example 4 - Логування елементів
 Напиши функцію logItems(items), яка отримує масив та використовує цикл for, 
 який для кожного елемента масиву буде виводити в консоль повідомлення форматі 
