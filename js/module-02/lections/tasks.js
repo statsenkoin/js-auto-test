@@ -253,17 +253,17 @@ console.log(findLargestNumber([2, 17, 94, 1, 23, 37]))); // 94
 console.log(findLargestNumber([49, 4, 7, 83, 12]))); // 83 ``
 */
 
-function findLargestNumber(numbers) {
-  let maxNumber = numbers[0];
-  for (const number of numbers) {
-    if (number > maxNumber) maxNumber = number;
-  }
+// function findLargestNumber(numbers) {
+//   let maxNumber = numbers[0];
+//   for (const number of numbers) {
+//     if (number > maxNumber) maxNumber = number;
+//   }
 
-  return maxNumber;
-}
+//   return maxNumber;
+// }
 
-console.log(findLargestNumber([2, 17, 94, 1, 23, 37])); // 94
-console.log(findLargestNumber([49, 4, 7, 83, 12])); // 83
+// console.log(findLargestNumber([2, 17, 94, 1, 23, 37])); // 94
+// console.log(findLargestNumber([49, 4, 7, 83, 12])); // 83
 
 /** Example 7 - Середнє значення
 Напишіть функцію calAverage() яка приймає довільну кількість аргументів і 
@@ -275,6 +275,19 @@ console.log(calAverage(1, 2, 3, 4)); // 2.5
 console.log(calAverage(14, 8, 2)); // 8 
 console.log(calAverage(27, 43, 2, 8, 36)); // 23.2 ``
 */
+
+function calAverage(...args) {
+  console.log(args);
+  let sum = 0;
+  for (const arg of args) {
+    sum += arg;
+  }
+  return sum / args.length;
+}
+
+console.log(calAverage(1, 2, 3, 4)); // 2.5
+console.log(calAverage(14, 8, 2)); // 8
+console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
 
 /** Example 8 - Форматування часу
 Напиши функцію formatTime(minutes) яка переведе значення minutes (кількість хвилин) 
