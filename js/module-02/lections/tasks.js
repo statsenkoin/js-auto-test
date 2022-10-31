@@ -104,15 +104,20 @@ const phones = '89001234567,89001112233,890055566377,890055566300';
 js const string = 'Welcome to the future';
 */
 
-const string = 'Welcome to the future';
-const strArr = string.split(' ').slice(1, -1);
-console.log(strArr.join(' '));
+// const string = 'Welcome to the future';
+// const strArr = string.split(' ').slice(1, -1);
+// console.log(strArr.join(' '));
 
 /** Example 6 - Масиви та рядки
 Напиши скрипт, який «розгортає» рядок (зворотний порядок букв) і виводить її в консоль.
 
 js const string = 'Welcome to the future';
 */
+
+const string = 'Welcome to the future';
+// const strArr = string.split(' ');
+// console.log(strArr.reverse());
+console.log(string.split('').reverse().join(''));
 
 /** Example 7 - Сортування масиву
 Напиши скрипт сортування масиву.
