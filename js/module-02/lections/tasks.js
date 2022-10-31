@@ -231,18 +231,18 @@ printContactsInfo( 'Jacob, William, Solomon, Artemis',
                     '89001234567,89001112233,890055566377,890055566300', ); ``
 */
 
-function printContactsInfo(names, phones) {
-  const namesArr = names.split(', ');
-  const phonesArr = phones.split(',');
-  for (const name of namesArr) {
-    console.log(`${name}: ${phonesArr[namesArr.indexOf(name)]}`);
-  }
-}
+// function printContactsInfo(names, phones) {
+//   const namesArr = names.split(', ');
+//   const phonesArr = phones.split(',');
+//   for (const name of namesArr) {
+//     console.log(`${name}: ${phonesArr[namesArr.indexOf(name)]}`);
+//   }
+// }
 
-printContactsInfo(
-  'Jacob, William, Solomon, Artemis',
-  '89001234567,89001112233,890055566377,890055566300'
-);
+// printContactsInfo(
+//   'Jacob, William, Solomon, Artemis',
+//   '89001234567,89001112233,890055566377,890055566300'
+// );
 
 /** Example 6 - Пошук найбільшого елемента
 Напиши функцію findLargestNumber(numbers) яка шукає найбільше число в масиві.
@@ -252,6 +252,18 @@ printContactsInfo(
 console.log(findLargestNumber([2, 17, 94, 1, 23, 37]))); // 94 
 console.log(findLargestNumber([49, 4, 7, 83, 12]))); // 83 ``
 */
+
+function findLargestNumber(numbers) {
+  let maxNumber = numbers[0];
+  for (const number of numbers) {
+    if (number > maxNumber) maxNumber = number;
+  }
+
+  return maxNumber;
+}
+
+console.log(findLargestNumber([2, 17, 94, 1, 23, 37])); // 94
+console.log(findLargestNumber([49, 4, 7, 83, 12])); // 83
 
 /** Example 7 - Середнє значення
 Напишіть функцію calAverage() яка приймає довільну кількість аргументів і 
