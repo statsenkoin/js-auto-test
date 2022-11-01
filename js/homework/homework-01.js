@@ -78,41 +78,89 @@ const countrieTour = [
   { countrie: 'USA', price: 600 },
 ];
 const users = [
-  { userName: 'Alex', password: 111 },
-  { userName: 'Ihor', password: 1432 },
-  { userName: 'Vitalii', password: 999 },
-  { userName: 'Leo', password: 2431 },
+  { username: 'Alex', userpassword: 111, deposit: 200 },
+  { username: 'Ihor', userpassword: 1432, deposit: 1200 },
+  { username: 'Bob', userpassword: 999, deposit: 0 },
+  { username: 'Leo', userpassword: 2431, deposit: 730 },
 ];
 
 let isUserActive = true;
 let isUserSigned = false;
+let isCanceled = false;
 let userName = '';
 let userPass = '';
 let usersList = [];
+const strUserCanceled = 'Operation is canceled by user.';
+const strUserInfo = 'must contain at least one symbol';
 
 while (isUserActive) {
-  myLog('in while');
-  myTable(countrieTour);
+  while (!isUserSigned && !isCanceled) {
+    signInUser(users);
+  }
 
-  // ---------------------
-
-  signInUser(users);
-
-  isUserActive = false;
+  // isUserActive = false;
 }
-
-myLog('after while');
 
 // ----- FUNCTIONS -----------------------------------------------------------------------
 
-function signInUser(usersDataBase) {
-  for (const user of usersDataBase) {
-    usersList.push(user.userName);
-    myLog(usersList);
-  }
-  checkUserCredentials(usersList);
+function createAccount(username, userpassword) {
+  users.push({ username, userpassword, deposit: 0 });
 }
-function checkUserCredentials(usersArr) {}
+
+function checkUserInput(str) {
+  let isInputValid = false;
+  while (!isInputValid) {
+    userInput = prompt(`Enter your ${str}`);
+
+    if (userInput === null) {
+      console.log(strUserCanceled);
+      alert(strUserCanceled);
+      isCanceled = true;
+      isUserActive = false;
+      return null;
+    }
+
+    if (userInput === '') {
+      console.log(`${str} ${strUserInfo}`);
+      alert(`${str} ${strUserInfo}`);
+      continue;
+    }
+
+    isInputValid = true;
+  }
+  return userInput;
+}
+
+function signInUser(usersDB) {
+  for (const user of usersDB) {
+    usersList.push(user.username);
+  }
+  myLog(usersList); //['Alex', 'Ihor', 'Bob', 'Leo']
+
+  while (!isUserSigned) {
+    userName = checkUserInput('username');
+    if (userName === null) return;
+
+    if (!usersList.includes(userName)) {
+      const willSignUp = confirm(
+        `User ${userName} is not registered.\nWould you like to sign up?`
+      );
+      switch (willSignUp) {
+        case true:
+          signUpUser(usersList);
+          break;
+        case false:
+          isCanceled = true;
+          isUserActive = false;
+          return;
+      }
+    }
+  }
+
+  // userPass = prompt('Enter your password');
+}
+
+function signUpUser(usersList) {}
 
 // ---------------------------------------------------------------------------------------
 
@@ -132,7 +180,7 @@ function myTable(myObject) {
 // let maxPrice = 0;
 // let isUserSined = false;
 // // let isUserActive = true;
-// const strUserCanceled = 'has been canceled by user.';
+// const strUserCanceled = 'is canceled by user.';
 // const strUserInfo = 'User name must contain\n at least one symbol';
 
 // // ===== REGISTRATION =====================================
