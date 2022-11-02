@@ -69,7 +69,7 @@
 // =====     Version 2     =================================================================
 // =========================================================================================
 
-const countrieTour = [
+const countrieTours = [
   { countrie: 'Ukraine', price: 100 },
   { countrie: 'Poland', price: 200 },
   { countrie: 'Croatia', price: 300 },
@@ -78,28 +78,53 @@ const countrieTour = [
   { countrie: 'USA', price: 600 },
 ];
 const users = [
-  { username: 'Alex', userpassword: 111, deposit: 200 },
-  { username: 'Ihor', userpassword: 1432, deposit: 1200 },
-  { username: 'Bob', userpassword: 999, deposit: 0 },
-  { username: 'Leo', userpassword: 2431, deposit: 730 },
+  { username: 'Alex', userpassword: '111', deposit: 200 },
+  { username: 'Ihor', userpassword: '1q32', deposit: 1200 },
+  { username: 'Bob', userpassword: '9!9', deposit: 0 },
+  { username: 'Leo', userpassword: '2431', deposit: 730 },
 ];
 
 let isUserActive = true;
 let isUserSigned = false;
-let isCanceled = false;
+let userInput = '';
 let userName = '';
 let userPass = '';
 let usersList = [];
-const strUserCanceled = 'Operation is canceled by user.';
+let activeUser = {};
+const strUserCanceled = 'Session is canceled by user.';
 const strUserInfo = 'must contain at least one symbol';
+const priceList = [];
+const countriesAvialable = [];
+
+// --------------------------------------------------------------------------------------
+
+// while (isUserActive && !isUserSigned) {
+//   activeUser = signInUser(users);
+// }
 
 while (isUserActive) {
-  while (!isUserSigned && !isCanceled) {
-    signInUser(users);
-  }
+  activeUser = { username: 'Alex', userpassword: '111', deposit: 20 };
+  myLog(activeUser);
 
-  // isUserActive = false;
+  for (const tour of countrieTours) {
+    priceList.push(tour.price);
+  }
+  myLog('priceList: ' + priceList);
+
+  for (let i = 0; i < priceList.length; i += 1) {
+    if (activeUser.deposit >= priceList[i]) {
+      countriesAvialable.push(countrieTours[i].countrie);
+    }
+  }
+  myLog('countries: ' + countriesAvialable);
+
+  if (countriesAvialable.length === 0) {
+    myLog('no tours avialable');
+  }
+  isUserActive = false;
 }
+
+myLog('THE END');
 
 // ----- FUNCTIONS -----------------------------------------------------------------------
 
@@ -113,15 +138,13 @@ function checkUserInput(str) {
     userInput = prompt(`Enter your ${str}`);
 
     if (userInput === null) {
-      console.log(strUserCanceled);
+      myLog(strUserCanceled);
       alert(strUserCanceled);
-      isCanceled = true;
       isUserActive = false;
-      return null;
+      return userInput;
     }
 
     if (userInput === '') {
-      console.log(`${str} ${strUserInfo}`);
       alert(`${str} ${strUserInfo}`);
       continue;
     }
@@ -132,35 +155,61 @@ function checkUserInput(str) {
 }
 
 function signInUser(usersDB) {
-  for (const user of usersDB) {
-    usersList.push(user.username);
-  }
-  myLog(usersList); //['Alex', 'Ihor', 'Bob', 'Leo']
-
   while (!isUserSigned) {
-    userName = checkUserInput('username');
+    for (const user of usersDB) {
+      usersList.push(user.username);
+    }
+    myTable(users);
+
+    userName = checkUserInput('username to sign in');
     if (userName === null) return;
 
     if (!usersList.includes(userName)) {
       const willSignUp = confirm(
         `User ${userName} is not registered.\nWould you like to sign up?`
       );
-      switch (willSignUp) {
-        case true:
-          signUpUser(usersList);
-          break;
-        case false:
-          isCanceled = true;
-          isUserActive = false;
-          return;
+
+      if (willSignUp) {
+        signUpUser();
+        continue;
+      } else {
+        isUserActive = false;
+        myLog(strUserCanceled);
+        return;
       }
     }
-  }
 
-  // userPass = prompt('Enter your password');
+    userPass = checkUserInput('userpass to sign in');
+    if (userPass === null) return;
+
+    myLog(`userName: ${userName}`);
+    myLog(`userPass: ${userPass}`);
+
+    if (userPass !== users[usersList.indexOf(userName)].userpassword) {
+      alert('Password is not valid. Try again...');
+      myLog('Password is not valid. Try again...');
+      continue;
+    }
+
+    myLog('Login success');
+
+    isUserSigned = true;
+    return users[usersList.indexOf(userName)];
+  }
 }
 
-function signUpUser(usersList) {}
+function signUpUser() {
+  userName = checkUserInput('username to sign up');
+  if (userName === null) return;
+  userPass = checkUserInput('userpass to sign up');
+  if (userPass === null) return;
+
+  myLog(`userName: ${userName}`);
+  myLog(`userPass: ${userPass}`);
+
+  createAccount(userName, userPass);
+  myLog('Signup success');
+}
 
 // ---------------------------------------------------------------------------------------
 
@@ -172,54 +221,3 @@ function myTable(myObject) {
 }
 
 // =======================================================================================
-
-// let userName = '';
-// let userPass = '';
-// let userCredits = '';
-// let userCountries = [];
-// let maxPrice = 0;
-// let isUserSined = false;
-// // let isUserActive = true;
-// const strUserCanceled = 'is canceled by user.';
-// const strUserInfo = 'User name must contain\n at least one symbol';
-
-// // ===== REGISTRATION =====================================
-
-// while (!isUserSined) {
-//   userName = prompt('Enter your\n user name');
-//   if (userName === null) {
-//     console.log(`Registration ${strUserCanceled}`);
-//     alert(`Registration ${strUserCanceled}`);
-//     break;
-//   }
-//   if (userName === '') {
-//     console.log(strUserInfo);
-//     alert(strUserInfo);
-//     continue;
-//   }
-
-//   userPass = prompt('Enter your password');
-//   if (userPass === null) {
-//     console.log(`Registration ${strUserCanceled}`);
-//     alert(`Registration ${strUserCanceled}`);
-//     break;
-//   }
-//   if (userPass === '') {
-//     console.log(strUserInfo);
-//     alert(strUserInfo);
-//     continue;
-//   }
-//   isUserSined = true;
-// }
-
-// // isUserSined = false;
-// // while (isUserActive && !isUserSined) {
-// //   isUserSined = true;
-// // }
-
-// console.log(`Your user name: ${userName}`);
-// console.log(`Your password: ${userPass}`);
-
-// // ---------------------------------------------------------
-
-// function checkUserName(userName) {}
