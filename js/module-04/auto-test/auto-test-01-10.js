@@ -304,21 +304,272 @@ numbers.forEach(function (number, index) {
 використовувала метод forEach.
 */
 
-function calculateTotalPrice(orderedItems) {
-  let totalPrice = 0;
-  // Change code below this line
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
+//   // Change code below this line
 
-  // for (let i = 0; i < orderedItems.length; i += 1) {
-  //   totalPrice += orderedItems[i];
-  // }
+//   // for (let i = 0; i < orderedItems.length; i += 1) {
+//   //   totalPrice += orderedItems[i];
+//   // }
 
-  orderedItems.forEach((item) => (totalPrice += item));
+//   orderedItems.forEach((item) => (totalPrice += item));
 
-  // Change code above this line
-  return totalPrice;
+//   // Change code above this line
+//   return totalPrice;
+// }
+
+// // --------------------------------------------------------------------------
+// console.log(calculateTotalPrice([12, 85, 37, 4])); //138
+// console.log(calculateTotalPrice([164, 48, 291])); //503
+// console.log(calculateTotalPrice([412, 371, 94, 63, 176])); //1116
+
+// ============================================================================
+
+/** 6 ЗАДАЧА. ФІЛЬТРАЦІЯ МАСИВУ ЧИСЕЛ
+Функція filterArray(numbers, value) приймає масив чисел numbers і повертає 
+новий масив, в якому будуть тільки ті елементи оригінального масиву, які 
+більші за значення параметра value.
+
+Виконай рефакторинг функції таким чином, щоб замість циклу for, вона 
+використовувала метод forEach.
+*/
+
+// function filterArray(numbers, value) {
+//   const filteredNumbers = [];
+//   // Change code below this line
+
+//   // for (let i = 0; i < numbers.length; i += 1) {
+//   //   if (numbers[i] > value) {
+//   //     filteredNumbers.push(numbers[i]);
+//   //   }
+//   // }
+
+//   numbers.forEach((number) => {
+//     if (number > value) {
+//       filteredNumbers.push(number);
+//     }
+//   });
+
+//   // Change code above this line
+//   return filteredNumbers;
+// }
+
+// // -----------------------------------------------------------------------
+// console.log(filterArray([1, 2, 3, 4, 5], 3)); //[4, 5]
+// console.log(filterArray([1, 2, 3, 4, 5], 4)); //[5]
+// console.log(filterArray([1, 2, 3, 4, 5], 5)); //[]
+// console.log(filterArray([12, 24, 8, 41, 76], 38)); //[41, 76]
+// console.log(filterArray([12, 24, 8, 41, 76], 20)); //[24, 41, 76]
+
+// ============================================================================
+
+/** 7ЗАДАЧА. СПІЛЬНІ ЕЛЕМЕНТИ
+Функція getCommonElements(firstArray, secondArray) приймає два масиви довільної 
+довжини в параметри firstArray і secondArray, і повертає новий масив їхніх 
+спільних елементів, тобто тих, які присутні в обох масивах.
+
+Виконай рефакторинг функції таким чином, щоб замість циклу for, вона 
+використовувала метод forEach.
+*/
+
+// function getCommonElements(firstArray, secondArray) {
+//   const commonElements = [];
+//   // Change code below this line
+
+//   // for (let i = 0; i < firstArray.length; i += 1) {
+//   //   if (secondArray.includes(firstArray[i])) {
+//   //     commonElements.push(firstArray[i]);
+//   //   }
+//   // }
+
+//   // return commonElements;
+//   // ------------------------------------
+
+//   firstArray.forEach((element) => {
+//     if (secondArray.includes(element)) {
+//       commonElements.push(element);
+//     }
+//   });
+
+//   return commonElements;
+//   // Change code above this line
+// }
+
+// // ------------------------------------------------------------------------
+
+// myLog(getCommonElements([1, 2, 3], [2, 4])); //[2]
+// myLog(getCommonElements([1, 2, 3], [2, 1, 17, 19])); //[1, 2]
+// myLog(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27])); //[12, 27, 3]
+// myLog(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40])); //[10, 30, 40]
+// myLog(getCommonElements([1, 2, 3], [10, 20, 30])); //[]
+
+// ============================================================================
+
+/** 8 СТРІЛОЧНІ ФУНКЦІЇ.
+Стрілочні функції мають скорочений, лаконічніший синтаксис, що зменшує обсяг 
+коду, особливо коли функція маленька або якщо вона використовується як колбек.
+
+Усі стрілки створюються як функціональний вираз, і якщо функція - не анонімна, 
+її необхідно присвоювати змінній.
+
+// Звичайне оголошення функції
+function classicAdd(a, b, c) {
+  return a + b + c;
 }
 
+// Те саме стрілочною функцією
+const arrowAdd = (a, b, c) => {
+  return a + b + c;
+};
+
+Ключове слово function не використовується, замість цього відразу зазначається 
+оголошення параметрів, після нього - символ => і тіло функції.
+
+Якщо параметрів декілька, то вони перераховуються через кому в круглих дужках, 
+між знаками рівності = і стрілкою =>.
+
+const add = (a, b, c) => {
+  return a + b + c;
+};
+
+Якщо параметр один, його можна оголошувати без круглих дужок.
+
+const add = a => {
+  return a + 5;
+};
+
+Якщо параметри відсутні, то обов'язково повинні бути порожні круглі дужки.
+
+const greet = () => {
+  console.log("Привіт!");
+};
+
+// ----------------------------------------------------------------------------
+Виконай рефакторинг функції calculateTotalPrice() таким чином, щоб вона була 
+оголошена як стрілочна.
+*/
+
+// Change code below this line
+
+// function calculateTotalPrice(quantity, pricePerItem) {
+
+// const calculateTotalPrice = (quantity, pricePerItem) => {
+//   return quantity * pricePerItem;
+// };
+
+// // Change code above this line
+// // return quantity * pricePerItem;
+// // }
+
+// // ---------------------------------------------------------------------------
+// myLog(calculateTotalPrice(5, 100)); //500
+// myLog(calculateTotalPrice(8, 60)); //480
+// myLog(calculateTotalPrice(3, 400)); //1200
+
+// ============================================================================
+
+/** 9 НЕЯВНЕ ПОВЕРНЕННЯ
+У стрілочної функції після символу => знаходиться її тіло. Існує два варіанти: 
+з фігурними дужками і без них.
+
+const add = (a, b, c) => {
+  console.log(a, b, c);
+  return a + b + c;
+};
+
+Якщо є фігурні дужки, і функція повинна повертати якесь значення, необхідно 
+явно поставити return. Це називається явне повернення (explicit return). 
+Такий синтаксис використовується у разі, якщо в тілі функції потрібно 
+виконати ще якісь інструкції, крім повернення значення.
+
+const add = (a, b, c) => a + b + c;
+
+Якщо фігурні дужки відсутні, то повертається результат виразу, який стоїть 
+після =>. Це називається неявне повернення (implicit return). У прикладі 
+повернеться результат виразу додавання параметрів a, b і c.
+
+Синтаксис неявного повернення суттєво скорочує «шум» оголошення функції з 
+тілом і виразом, що повертається, але доречний тільки тоді, коли в тілі 
+функції не потрібно виконувати жодних додаткових інструкцій, крім 
+повернення значення.
+
+// До
+function classicAdd(a, b, c) {
+  return a + b + c;
+}
+
+// Після
+const arrowAdd = (a, b, c) => a + b + c;
+
 // --------------------------------------------------------------------------
-console.log(calculateTotalPrice([12, 85, 37, 4])); //138
-console.log(calculateTotalPrice([164, 48, 291])); //503
-console.log(calculateTotalPrice([412, 371, 94, 63, 176])); //1116
+Виконай рефакторинг функції calculateTotalPrice() таким чином, щоб вона 
+використовувала неявне повернення.
+*/
+
+// Change code below this line
+// const calculateTotalPrice = (quantity, pricePerItem) => {
+//   return quantity * pricePerItem;
+// };
+
+// const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
+// // Change code above this line
+
+// // ---------------------------------------------------------------------------
+// myLog(calculateTotalPrice(5, 100)); //500
+// myLog(calculateTotalPrice(8, 60)); //480
+// myLog(calculateTotalPrice(3, 400)); //1200
+
+// ============================================================================
+
+/** 10 СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ
+Анонімні стрілочні функції відмінно підходять як колбеки для перебираючих 
+методів масиву завдяки коротшому синтаксису оголошення, особливо, якщо не 
+потрібне тіло функції.
+
+const numbers = [5, 10, 15, 20, 25];
+
+// Оголошення функції
+numbers.forEach(function (number, index) {
+  console.log(`Індекс ${index}, значення ${number}`);
+});
+
+// Анонімна стрілочна функція
+numbers.forEach((number, index) => {
+  console.log(`Індекс ${index}, значення ${number}`);
+});
+
+Стрілочну колбек-функцію також можна оголошувати окремо і передавати 
+на неї посилання. Це варто робити, якщо одна функція використовується у 
+декількох місцях програми або якщо вона громіздка.
+
+const numbers = [5, 10, 15, 20, 25];
+
+const logMessage = (number, index) => {
+  console.log(`Індекс ${index}, значення ${number}`);
+};
+
+numbers.forEach(logMessage);
+
+// ---------------------------------------------------------------------------
+Виконай рефакторинг функції calculateTotalPrice(orderedItems), замінивши 
+її оголошення на стрілочну функцію. Заміни колбек-функцію, передану в метод 
+forEach(), на стрілочну функцію.
+*/
+
+// Change code below this line
+function calculateTotalPrice(orderedItems) {
+  let totalPrice = 0;
+
+  orderedItems.forEach(function (item) {
+    totalPrice += item;
+  });
+
+  return totalPrice;
+}
+// Change code above this line
+
+// ============================================================================
+
+function myLog(data) {
+  console.log(data);
+}
