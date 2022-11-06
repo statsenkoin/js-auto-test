@@ -372,3 +372,158 @@ colorPickerOptions.find((option) => option.label === "white");
 // myLog(anyElementInThirdIsOdd); //true
 
 // ============================================================================
+
+/** 33 ЗАДАЧА. ЧИ Є АКТИВНІ КОРИСТУВАЧІ
+Доповни функцію isAnyUserActive(users) таким чином, щоб вона перевіряла наявність 
+активних користувачів (властивість isActive) і повертала true або false.
+*/
+
+// Цей масив об'єктів ми будемо передавати в параметр users під час виклику
+// функції із завдання.
+
+// const users = [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female',
+//   },
+// ];
+
+// // Change code below this line
+// const isAnyUserActive = (users) => users.some((user) => user.isActive);
+// // Change code above this line
+
+// // ----------------------------------------------------------------------------
+// myLog(isAnyUserActive(users)); //true
+
+// ============================================================================
+
+/** 34 МЕТОД REDUCE()
+Метод reduce(callback, initialValue) використовується для послідовної обробки 
+кожного елемента масиву із збереженням проміжного результату, як акумулятор. 
+Трохи складніший за інші методи для засвоєння, але результат вартий того.
+
+массив.reduce((previousValue, element, index, array) => {
+  // Тіло колбек-функції
+}, initialValue);
+
+Не змінює оригінальний масив.
+Поелементо перебирає оригінальний масив.
+Повертає все, що завгодно.
+Робить все, що завгодно.
+
+Найлегше уявити його роботу на прикладі підрахунку суми елементів масиву.
+
+const total = [2, 7, 3, 14, 6].reduce((previousValue, number) => {
+  return previousValue + number;
+}, 0);
+
+console.log(total); // 32
+
+Перший параметр колбек-функції (previousValue) - це акумулятор, тобто проміжний 
+результат. Значення, яке поверне колбек-функція на поточній ітерації, буде 
+значенням цього параметра на наступній ітерації.
+
+Другим аргументом для reduce() можна передати необов'язкове початкове значення 
+акумулятора - параметр initialValue.
+
+# Спочатку метод reduce() створює внутрішню змінну-акумулятор і
+# присвоює їй значення параметра initialValue або першого елемента
+# масиву, що перебирається, якщо initialValue не задане.
+previousValue = 0
+
+# Потім колбек-функція викликається для кожного елемента масиву. Поточне значення
+# параметра previousValue - це те, що повернула колбек-функція на минулій ітерації.
+Ітерація 1 -> previousValue = 0 -> number = 2 -> return 0 + 2 -> return 2
+Ітерація 2 -> previousValue = 2 -> number = 7 -> return 2 + 7 -> return 9
+Ітерація 3 -> previousValue = 9 -> number = 3 -> return 9 + 3 -> return 12
+Ітерація 4 -> previousValue = 12 -> number = 14 -> return 12 + 14 -> return 26
+Ітерація 5 -> previousValue = 26 -> number = 6 -> return 26 + 6 -> return 32
+
+# Після завершення перебирання всього масиву, метод reduce() повертає значення 
+акумулятора.
+Результат - 32
+Тобто метод reduce() використовується, коли необхідно взяти «багато» і 
+привести до «одного». У повсякденних завданнях його застосування зводиться 
+до роботи з числами.
+
+// ----------------------------------------------------------------------------
+Ігровому сервісу необхідний функціонал підрахунку середнього часу, 
+проведеного в іграх. Доповни код таким чином, щоб у змінній totalPlayTime 
+вийшло загальний ігровий час з масиву playtimes.
+*/
+
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244,
+// };
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+// // Change code below this line
+
+// const totalPlayTime = playtimes.reduce((a, b) => a + b, 0);
+
+// // Change code above this line
+// const averagePlayTime = totalPlayTime / playtimes.length;
+
+// // ----------------------------------------------------------------------------
+// myLog(totalPlayTime); //2692
