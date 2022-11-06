@@ -1558,9 +1558,10 @@ console.log(uniqueSortedCourses);
 
 // ============================================================================
 
-/** 48 ЗАДАЧА. ІМЕНА ДРУЗІВ
-Доповни функцію getSortedFriends(users) таким чином, щоб вона повертала масив 
-унікальних імен друзів (властивість friends), відсортований за алфавітом.
+/** 48 ЗАДАЧА. ЗАГАЛЬНИЙ БАЛАНС
+Доповни функцію getTotalBalanceByGender(users, gender) таким чином, щоб вона 
+повертала загальний баланс користувачів (властивість balance), стать яких 
+(властивість gender) збігається зі значенням параметра gender.
 */
 
 // Цей масив об'єктів ми будемо передавати в параметр users під час виклику
@@ -1637,17 +1638,15 @@ const users = [
   },
 ];
 
-// // Change code below this line
-// const getSortedFriends = (users) =>
-//   [...users]
-//     .flatMap((user) => user.friends)
-//     .filter((friend, index, array) => array.indexOf(friend) === index)
-//     .sort((a, b) => a.localeCompare(b));
+// Change code below this line
+const getTotalBalanceByGender = (users, gender) =>
+  [...users]
+    .filter((user) => user.gender === gender)
+    .map((user) => user.balance)
+    .reduce((a, b) => a + b, 0);
 
-// // Change code above this line
-// // // ----------------------------------------------------------------------------
-// myLog(getSortedFriends(users));
-//["Adrian Cross", "Aisha Tran", "Briana Decker", "Eddie Strong",
-// "Goldie Gentry", "Jacklyn Lucas", "Jordan Sampson", "Linda Chapman",
-// "Marilyn Mcintosh", "Naomi Buckner", "Padilla Garrison",
-// "Sharron Pace", "Solomon Fokes"]
+// Change code above this line
+
+// ----------------------------------------------------------------------------
+myLog(getTotalBalanceByGender(users, 'male')); //12053
+myLog(getTotalBalanceByGender(users, 'female')); //8863
