@@ -215,30 +215,30 @@ companyName та stock та виводила репорт про кількіс�
 */
 
 // Рішення
-function transformUsername({ firstName, lastName, ...obj }) {
-  // your code
-  return {
-    fullName: `${firstName} ${lastName}`,
-    ...obj,
-  };
-}
+// function transformUsername({ firstName, lastName, ...obj }) {
+//   // your code
+//   return {
+//     fullName: `${firstName} ${lastName}`,
+//     ...obj,
+//   };
+// }
 
-console.log(
-  transformUsername({
-    id: 1,
-    firstName: 'Jacob',
-    lastName: 'Mercer',
-    email: 'j.mercer@mail.com',
-    friendCount: 40,
-  })
-);
+// console.log(
+//   transformUsername({
+//     id: 1,
+//     firstName: 'Jacob',
+//     lastName: 'Mercer',
+//     email: 'j.mercer@mail.com',
+//     friendCount: 40,
+//   })
+// );
 
-console.log(
-  transformUsername({
-    id: 2,
-    firstName: 'Adrian',
-    lastName: 'Cross',
-    email: 'a.cross@hotmail.com',
-    friendCount: 20,
-  })
-);
+// console.log(
+//   transformUsername({
+//     id: 2,
+//     firstName: 'Adrian',
+//     lastName: 'Cross',
+//     email: 'a.cross@hotmail.com',
+//     friendCount: 20,
+//   })
+// );
