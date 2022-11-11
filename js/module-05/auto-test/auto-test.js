@@ -414,23 +414,39 @@ removeItem(itemToRemove) - приймає товар itemToRemove і видал�
 нічого там не змінюй.
  */
 
-class Storage {
-  constructor(items) {
-    this.items = items;
-  }
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
 
-  getItems() {}
-  addItem(newItem) {}
-  removeItem(itemToRemove) {}
-}
+//   getItems() {
+//     return this.items;
+//   }
 
-// Change code above this line
-const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-storage.addItem('Droid');
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-storage.removeItem('Prolonger');
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+//   addItem(newItem) {
+//     this.items.push(newItem);
+//   }
+
+//   // removeItem(itemToRemove) {
+//   //   const index = this.items.findIndex((item) => item === itemToRemove);
+//   //   this.items.splice(index, 1);
+//   // }
+
+//   removeItem(itemToRemove) {
+//     this.items.splice(
+//       this.items.findIndex((item) => item === itemToRemove),
+//       1
+//     );
+//   }
+// }
+
+// // Change code above this line
+// const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem('Droid');
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem('Prolonger');
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 
 // ============================================================================
 
