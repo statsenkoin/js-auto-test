@@ -69,57 +69,58 @@
 // =====     Version 2     =================================================================
 // =========================================================================================
 
-// const countries = [
-//   'Ukraine',
-//   'Poland',
-//   'Croatia',
-//   'Montenegro',
-//   'France',
-//   'USA',
-// ];
-// const countriesPrice = [100, 200, 300, 400, 500, 600];
-// let userName = '';
-// let userPass = '';
-// let userCountries = [];
-// let userCredits = 0;
-// let maxPrice = 0;
-// let isUserValid = false;
-// let choosedCountry = ``;
+const countries = [
+  'Ukraine',
+  'Poland',
+  'Croatia',
+  'Montenegro',
+  'France',
+  'USA',
+];
+const countriesPrice = [100, 200, 300, 400, 500, 600];
 
-// userName = prompt('Enter your username');
-// userPass = prompt('Enter your userpass');
+let userName = '';
+let userPass = '';
+let userCountries = [];
+let userCredits = 0;
+let maxPrice = 0;
+let isUserValid = false;
+let choosedCountry = ``;
 
-// console.log(`Your username is ${userName}`);
-// console.log(`Your userpass is ${userPass}`);
+userName = prompt('Enter your username');
+userPass = prompt('Enter your userpass');
 
-// while (!isUserValid) {
-//   if (
-//     prompt('Enter your username') !== userName ||
-//     prompt('Enter your userpass') !== userPass
-//   ) {
-//     console.log('Try again');
-//     alert('Try again');
-//     continue;
-//   }
-//   isUserValid = true;
-//   console.log('Login success');
-// }
+console.log(`Your username is ${userName}`);
+console.log(`Your userpass is ${userPass}`);
 
-// maxPrice = prompt('Enter max price');
-// countriesPrice.forEach((value, index) => {
-//   if (maxPrice >= value) userCountries.push(countries[index]);
-// });
+while (!isUserValid) {
+  if (
+    prompt('Enter your username') !== userName ||
+    prompt('Enter your userpass') !== userPass
+  ) {
+    console.log('Try again');
+    alert('Try again');
+    continue;
+  }
+  isUserValid = true;
+  console.log('Login success');
+}
 
-// alert(` Avialable countries are:\n ${userCountries.join(', ')}`);
-// choosedCountry = prompt(
-//   ` Avialable countries are:\n ${userCountries.join(', ')}.\n Choose country...`
-// );
+maxPrice = prompt('Enter max price');
+countriesPrice.forEach((value, index) => {
+  if (maxPrice >= value) userCountries.push(countries[index]);
+});
 
-// userCredits = maxPrice - countriesPrice[countries.indexOf(choosedCountry)];
-// alert(
-//   ` ${choosedCountry} is a good choice.\n You have successfully bought tour to ${choosedCountry}.\n You have ${userCredits} credits left.`
-// );
-// console.log('Operation completed.');
+alert(` Avialable countries are:\n ${userCountries.join(', ')}`);
+choosedCountry = prompt(
+  ` Avialable countries are:\n ${userCountries.join(', ')}.\n Choose country...`
+);
+
+userCredits = maxPrice - countriesPrice[countries.indexOf(choosedCountry)];
+alert(
+  ` ${choosedCountry} is a good choice.\n You have successfully bought tour to ${choosedCountry}.\n You have ${userCredits} credits left.`
+);
+console.log('Operation completed.');
 
 // =========================================================================================
 // =====     Version 3     =================================================================
