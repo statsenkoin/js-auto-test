@@ -43,6 +43,6 @@
 // -------------------------------------------------------
 
 // Напиши функцію, яка повертає останній символ стрічки
-const getLastCharacter = (arg) => arg[arg.length - 1];
+// const getLastCharacter = (arg) => arg[arg.length - 1];
 
-console.log(getLastCharacter('321433530')); // 0
+// console.log(getLastCharacter('321433530')); // 0
