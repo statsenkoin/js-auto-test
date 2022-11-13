@@ -507,12 +507,139 @@ padBoth(str) - отримує параметр str (рядок) і додає й
 // ============================================================================
 
 /** AUTOTEST 12
+Інкапсуляція — це концепція, що дозволяє приховати те, як влаштований клас. 
+Користувач класу повинен отримувати доступ тільки до публічного інтерфейсу - 
+набору публічних властивостей і методів класу. Решта методів і властивостей 
+(не публічних) повинні бути недоступні.
+
+В класах інкапсуляція реалізується приватними властивостями, доступ до яких 
+можна отримати тільки всередині класу.
+
+Припустимо, що пошта користувача повинна бути недоступною для прямої зміни 
+зовні, тобто - приватною. Додаючи до імені властивості символ #, ми робимо 
+її приватною. Оголошення приватної властивості до ініціалізації в 
+конструкторі - обов'язкове.
+
+class User {
+  // Необов'язкове оголошення публічних властивостей
+  name;
+  // Обов'язкове оголошення приватних властивостей
+  #email;
+
+  constructor({ name, email }) {
+    this.name = name;
+    this.#email = email;
+  }
+
+  getEmail() {
+    return this.#email;
+  }
+
+  changeEmail(newEmail) {
+    this.#email = newEmail;
+  }
+}
+
+const mango = new User({
+  name: "Mango",
+  email: "mango@mail.com",
+});
+mango.changeEmail("mango@supermail.com");
+console.log(mango.getEmail()); // mango@supermail.com
+console.log(mango.#email); // Виникне помилка, це приватна властивість
+
+Методи класу також можуть бути приватними, тобто доступні тільки у 
+тілі класу. Для цього, перед їхнім ім'ям необхідно поставити символ #.
+
+// ----------------------------------------------------------------------------
+Виконай рефакторинг класу Car таким чином, щоб властивість brand була 
+приватною, і додай два методи для публічного інтерфейсу, для читання і 
+зміни цієї властивості.
+
+getBrand() - повертає значення приватної властивості brand.
+changeBrand(newBrand) - змінює значення приватної властивості brand на newBrand.
  */
+
+// class Car {
+//   // Change code below this line
+//   model;
+//   price;
+//   #brand;
+
+//   constructor({ brand, model, price }) {
+//     this.#brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+
+//   getBrand() {
+//     return this.#brand;
+//   }
+
+//   changeBrand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+//   // Change code above this line
+// }
+
+// ----------------------------------------------------------------------------
+// console.log(new Car({ brand: 'Audi', model: 'Q3', price: 36000 }));
+// // { model: "Q3", price: 36000 }
+// console.log(new Car({ brand: 'bmw', model: 'X5', price: 58900 }));
+// // { model: "X5", price: 58900 }
+// console.log(new Car({ brand: 'Nissan', model: 'Murano', price: 31700 }));
+// // { model: "Murano", price: 31700 }
+
+// const myCar = new Car({ brand: 'Nissan', model: 'Murano', price: 31700 });
+// console.log(myCar.getBrand());
+// //повертає значення приватної властивості brand
+// myCar.changeBrand('Honda');
+// console.log(myCar.getBrand());
+// // змінює значення приватної властивості brand на "Honda"
 
 // ============================================================================
 
 /** AUTOTEST 13
+Виконай рефакторинг класу Storage, зробивши властивість items приватною.
+
+Під коментарем ми додали ініціалізацію екземпляра і виклики методів у тій 
+послідовності, в якій твій код перевірятимуть тести. Будь ласка, нічого 
+там не змінюй.
  */
+
+// class Storage {
+//   // Change code below this line
+
+//   #items;
+
+//   constructor(items) {
+//     this.#items = items;
+//   }
+
+//   getItems() {
+//     return this.#items;
+//   }
+
+//   addItem(newItem) {
+//     this.#items.push(newItem);
+//   }
+
+//   removeItem(itemToRemove) {
+//     this.#items = this.#items.filter((item) => item !== itemToRemove);
+//   }
+// }
+
+// ----------------------------------------------------------------------------
+// // Change code above this line
+// const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+// console.log(storage.getItems());
+// // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem('Droid');
+// console.log(storage.getItems());
+// // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem('Prolonger');
+// console.log(storage.getItems());
+// // ["Нанитоиды", "Антигравитатор", "Droid"]
 
 // ============================================================================
 
