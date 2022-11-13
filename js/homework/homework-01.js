@@ -69,58 +69,58 @@
 // =====     Version 2     =================================================================
 // =========================================================================================
 
-const countries = [
-  'Ukraine',
-  'Poland',
-  'Croatia',
-  'Montenegro',
-  'France',
-  'USA',
-];
-const countriesPrice = [100, 200, 300, 400, 500, 600];
+// const countries = [
+//   'Ukraine',
+//   'Poland',
+//   'Croatia',
+//   'Montenegro',
+//   'France',
+//   'USA',
+// ];
+// const countriesPrice = [100, 200, 300, 400, 500, 600];
 
-let userName = '';
-let userPass = '';
-let userCountries = [];
-let userCredits = 0;
-let maxPrice = 0;
-let isUserValid = false;
-let choosedCountry = ``;
+// let userName = '';
+// let userPass = '';
+// let userCountries = [];
+// let userCredits = 0;
+// let maxPrice = 0;
+// let isUserValid = false;
+// let choosedCountry = ``;
 
-userName = prompt('Enter your username');
-userPass = prompt('Enter your userpass');
+// userName = prompt('Enter your username');
+// userPass = prompt('Enter your userpass');
 
-console.log(`Your username is ${userName}`);
-console.log(`Your userpass is ${userPass}`);
+// console.log(`Your username is ${userName}`);
+// console.log(`Your userpass is ${userPass}`);
 
-while (!isUserValid) {
-  if (
-    prompt('Enter your username') !== userName ||
-    prompt('Enter your userpass') !== userPass
-  ) {
-    console.log('Try again');
-    alert('Try again');
-    continue;
-  }
-  isUserValid = true;
-  console.log('Login success');
-}
+// while (!isUserValid) {
+//   if (
+//     prompt('Enter your username') !== userName ||
+//     prompt('Enter your userpass') !== userPass
+//   ) {
+//     console.log('Try again');
+//     alert('Try again');
+//     continue;
+//   }
+//   isUserValid = true;
+//   console.log('Login success');
+// }
 
-maxPrice = prompt('Enter max price');
-countriesPrice.forEach((value, index) => {
-  if (maxPrice >= value) userCountries.push(countries[index]);
-});
+// maxPrice = prompt('Enter max price');
+// countriesPrice.forEach((value, index) => {
+//   if (maxPrice >= value) userCountries.push(countries[index]);
+// });
 
-alert(` Avialable countries are:\n ${userCountries.join(', ')}`);
-choosedCountry = prompt(
-  ` Avialable countries are:\n ${userCountries.join(', ')}.\n Choose country...`
-);
+// alert(` Avialable countries are:\n ${userCountries.join(', ')}`);
+// choosedCountry = prompt(
+//   ` Avialable countries are:\n ${userCountries.join(', ')}.\n Choose country...`
+// );
 
-userCredits = maxPrice - countriesPrice[countries.indexOf(choosedCountry)];
-alert(
-  ` ${choosedCountry} is a good choice.\n You have successfully bought tour to ${choosedCountry}.\n You have ${userCredits} credits left.`
-);
-console.log('Operation completed.');
+// userCredits = maxPrice - countriesPrice[countries.indexOf(choosedCountry)];
+// alert(
+//   ` ${choosedCountry} is a good choice.\n You have successfully bought tour to ${choosedCountry}.\n You have ${userCredits} credits left.`
+// );
+// console.log('Operation completed.');
 
 // =========================================================================================
 // =====     Version 3     =================================================================
