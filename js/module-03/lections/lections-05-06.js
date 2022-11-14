@@ -1,3 +1,243 @@
+// var a = {},
+//   b = { key: 'b' },
+//   c = { key: 'c' };
+
+// a[b] = 123;
+// console.log(a);
+// a[c] = 456;
+// console.log(a);
+// console.log(Object.keys(a));
+// console.log(Object.values(a));
+
+// console.log(a[b]); //456
+
+// ===== LECTION 5 =======================================================
+
+/** Example 1 - Основи об'єктів
+Напиши скрипт, який для об'єкта user, послідовно:
+
+додає поле mood зі значенням 'happy'
+замінює значення hobby на 'skydiving'
+замінює значення premium на false
+виводить вміст об'єкта user у форматі ключ:значення використовуючи 
+Object.keys() та for...of
+*/
+
+// const user = {
+//   name: 'Mango',
+//   age: 20,
+//   hobby: 'html',
+//   premium: true,
+// };
+
+// user.mood = 'happy';
+// user.hobby = 'skydiving';
+// user.premium = false;
+
+// for (const key of Object.keys(user)) {
+// //   console.log(key, user[key]);
+//   console.log(`${key}: ${user[key]}`);
+// }
+
+// // -----------------------------------------------------------------------
+// console.log(user);
+
+/** Example 2 - метод Object.values()
+У нас є об'єкт, де зберігаються зарплати нашої команди. Напишіть код 
+для підсумовування всіх зарплат і збережіть результат у змінній sum. 
+Повинно вийти 390. Якщо об'єкт salaries порожній, 
+то результат має бути 0.
+*/
+
+// const salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
+// let sum = 0;
+// const salariesList = Object.values(salaries);
+// for (const salary of salariesList) {
+//   sum += salary;
+// }
+
+// const salaries1 = {};
+// let sum1 = 0;
+// const salariesList1 = Object.values(salaries1);
+// for (const salary of salariesList1) {
+//   sum1 += salary;
+// }
+
+// // -----------------------------------------------------------------------
+// console.log(sum);
+// console.log(sum1);
+
+/** Example 3 - Масив об'єктів
+Напишіть функцію calcTotalPrice(stones, stoneName), яка приймає масив 
+об'єктів та рядок з назвою каменю. Функція рахує і повертає загальну 
+вартість каміння з таким ім'ям, ціною та кількістю з об'єкта
+*/
+
+// const stones = [
+//   { name: 'Смарагд', price: 1300, quantity: 4 },
+//   { name: 'Діамант', price: 2700, quantity: 3 },
+//   { name: 'Сапфір', price: 400, quantity: 7 },
+//   { name: 'Щебінь', price: 200, quantity: 2 },
+// ];
+
+// // const calcTotalPrice = function (stones, stoneName) {
+// //   for (const stone of stones) {
+// //     if (stone.name === stoneName) {
+// //       return stone.price * stone.quantity;
+// //     }
+// //   }
+// // };
+
+// const calcTotalPrice = (stones, stoneName) => {
+//   for (const { name, price, quantity } of stones) {
+//     if (name === stoneName) {
+//       return price * quantity;
+//     }
+//   }
+// };
+
+// console.log(calcTotalPrice(stones, 'Смарагд'));
+// console.log(calcTotalPrice(stones, 'Щебінь'));
+
+/** Example 4 - Комплексні завдання
+Напиши скрипт управління особистим кабінетом інтернет банку. 
+Є об'єкт account в якому необхідно реалізувати методи для роботи з 
+балансом та історією транзакцій.
+*/
+
+/*
+ * Типів транзакцій всього два.
+ * Можна покласти чи зняти гроші з рахунку.
+ */
+const Transaction = {
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw',
+};
+
+/*
+ * Кожна транзакція це об'єкт із властивостями: id, type та amount
+ */
+
+const account = {
+  // Поточний баланс рахунку
+  balance: 0,
+
+  // Історія транзакцій
+  transactions: [],
+
+  transactionsID: 0,
+
+  /*
+   * Метод створює та повертає об'єкт транзакції.
+   * Приймає суму та тип транзакції.
+   */
+  createTransaction(amount, type) {
+    this.transactionsID += 1;
+    const id = this.transactionsID;
+    this.transactions.push({ id, amount, type });
+    console.log(this.transactions);
+  },
+
+  /*
+   * Метод, що відповідає за додавання суми до балансу.
+   * Приймає суму транзакції.
+   * Викликає createTransaction для створення об'єкта транзакції
+   * після чого додає його до історії транзакцій
+   */
+  deposit(amount) {
+    this.balance += amount;
+    this.createTransaction(amount, Transaction.DEPOSIT);
+    return 0;
+  },
+
+  /*
+   * Метод, що відповідає за зняття суми з балансу.
+   * Приймає суму транзакції.
+   * Викликає createTransaction для створення об'єкта транзакції
+   * після чого додає його до історії транзакцій.
+   *
+   * Якщо amount більше ніж поточний баланс, виводь повідомлення
+   * про те, що зняття такої суми не можливе, недостатньо коштів.
+   */
+  withdraw(amount) {
+    if (amount > this.balance) {
+      console.log('недостатньо коштів');
+      return 0;
+    }
+    this.balance -= amount;
+    this.createTransaction(amount, Transaction.WITHDRAW);
+    return 0;
+  },
+
+  /*
+   * Метод повертає поточний баланс
+   */
+  getBalance() {
+    return this.balance;
+  },
+
+  /*
+   * Метод шукає та повертає об'єкт транзакції по id
+   */
+  getTransactionDetails(id) {
+    for (const transaction of this.transactions) {
+      if (transaction.id === id) {
+        return transaction;
+      }
+    }
+  },
+
+  /*
+   * Метод повертає кількість коштів
+   * певного типу транзакції з усієї історії транзакцій
+   */
+  getTransactionTotal(type) {
+    let totalTransactionByType = 0;
+    for (const transaction of this.transactions) {
+      if (transaction.type === type) {
+        totalTransactionByType += transaction.amount;
+      }
+    }
+    return `Total ${type} transactions is ${totalTransactionByType} credits`;
+  },
+};
+
+console.log(account.deposit(5000));
+console.log(account.deposit(400));
+console.log(account.withdraw(1400));
+console.log(account.withdraw(14000));
+console.log(account.getBalance());
+console.log(account.getTransactionDetails(2));
+console.log(account.getTransactionTotal('deposit'));
+console.log(account.getTransactionTotal('withdraw'));
+
+// -----------------------------------------------------------------------
+
+// Розшифровка функції
+
+// function findLongestWord(string) {
+//   // 1. split розбиває рядок по пробілу на масив слів
+//   // 2. в тілі колбека reduce порівнюємо поточний елемент масива з результатом поверненим на попередній ітерації
+//   const wordsArr = string.split(' ');
+//   const longest = wordsArr.reduce(function (prev, item) {
+//     if (prev.length > item.length) {
+//       return prev;
+//     }
+//     return item;
+//   });
+
+//   return longest;
+
+//   // return string.split(' ').reduce((a, b) => (b.length > a.length) ? b : a);
+// }
+
+// let res = findLongestWord('Hello my name is longest one');
+// console.log(res);
+
 // ===== LECTION 6 =======================================================
 
 /** Example 1 - Деструктуризація
