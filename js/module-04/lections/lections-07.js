@@ -112,7 +112,6 @@ logTotalPrice(product) - колббек, що приймає об'єкт про�
 результати виклику коллбека.
 */
 
-
 const employees = [
   {
     name: 'Artur',
@@ -136,8 +135,4 @@ const employees = [
   },
 ];
 
-const each = (array, callback) => {
-  
-}
-
-const 
+const each = (array, callback) => {};
