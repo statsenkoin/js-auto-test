@@ -113,107 +113,107 @@ Object.keys() та for...of
  * Типів транзакцій всього два.
  * Можна покласти чи зняти гроші з рахунку.
  */
-const Transaction = {
-  DEPOSIT: 'deposit',
-  WITHDRAW: 'withdraw',
-};
+// const Transaction = {
+//   DEPOSIT: 'deposit',
+//   WITHDRAW: 'withdraw',
+// };
 
-/*
- * Кожна транзакція це об'єкт із властивостями: id, type та amount
- */
+// /*
+//  * Кожна транзакція це об'єкт із властивостями: id, type та amount
+//  */
 
-const account = {
-  // Поточний баланс рахунку
-  balance: 0,
+// const account = {
+//   // Поточний баланс рахунку
+//   balance: 0,
 
-  // Історія транзакцій
-  transactions: [],
+//   // Історія транзакцій
+//   transactions: [],
 
-  transactionsID: 0,
+//   transactionsID: 0,
 
-  /*
-   * Метод створює та повертає об'єкт транзакції.
-   * Приймає суму та тип транзакції.
-   */
-  createTransaction(amount, type) {
-    this.transactionsID += 1;
-    const id = this.transactionsID;
-    this.transactions.push({ id, amount, type });
-    console.log(this.transactions);
-  },
+//   /*
+//    * Метод створює та повертає об'єкт транзакції.
+//    * Приймає суму та тип транзакції.
+//    */
+//   createTransaction(amount, type) {
+//     this.transactionsID += 1;
+//     const id = this.transactionsID;
+//     this.transactions.push({ id, amount, type });
+//     console.log(this.transactions);
+//   },
 
-  /*
-   * Метод, що відповідає за додавання суми до балансу.
-   * Приймає суму транзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * після чого додає його до історії транзакцій
-   */
-  deposit(amount) {
-    this.balance += amount;
-    this.createTransaction(amount, Transaction.DEPOSIT);
-    return 0;
-  },
+//   /*
+//    * Метод, що відповідає за додавання суми до балансу.
+//    * Приймає суму транзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його до історії транзакцій
+//    */
+//   deposit(amount) {
+//     this.balance += amount;
+//     this.createTransaction(amount, Transaction.DEPOSIT);
+//     return 0;
+//   },
 
-  /*
-   * Метод, що відповідає за зняття суми з балансу.
-   * Приймає суму транзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * після чого додає його до історії транзакцій.
-   *
-   * Якщо amount більше ніж поточний баланс, виводь повідомлення
-   * про те, що зняття такої суми не можливе, недостатньо коштів.
-   */
-  withdraw(amount) {
-    if (amount > this.balance) {
-      console.log('недостатньо коштів');
-      return 0;
-    }
-    this.balance -= amount;
-    this.createTransaction(amount, Transaction.WITHDRAW);
-    return 0;
-  },
+//   /*
+//    * Метод, що відповідає за зняття суми з балансу.
+//    * Приймає суму транзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його до історії транзакцій.
+//    *
+//    * Якщо amount більше ніж поточний баланс, виводь повідомлення
+//    * про те, що зняття такої суми не можливе, недостатньо коштів.
+//    */
+//   withdraw(amount) {
+//     if (amount > this.balance) {
+//       console.log('недостатньо коштів');
+//       return 0;
+//     }
+//     this.balance -= amount;
+//     this.createTransaction(amount, Transaction.WITHDRAW);
+//     return 0;
+//   },
 
-  /*
-   * Метод повертає поточний баланс
-   */
-  getBalance() {
-    return this.balance;
-  },
+//   /*
+//    * Метод повертає поточний баланс
+//    */
+//   getBalance() {
+//     return this.balance;
+//   },
 
-  /*
-   * Метод шукає та повертає об'єкт транзакції по id
-   */
-  getTransactionDetails(id) {
-    for (const transaction of this.transactions) {
-      if (transaction.id === id) {
-        return transaction;
-      }
-    }
-  },
+//   /*
+//    * Метод шукає та повертає об'єкт транзакції по id
+//    */
+//   getTransactionDetails(id) {
+//     for (const transaction of this.transactions) {
+//       if (transaction.id === id) {
+//         return transaction;
+//       }
+//     }
+//   },
 
-  /*
-   * Метод повертає кількість коштів
-   * певного типу транзакції з усієї історії транзакцій
-   */
-  getTransactionTotal(type) {
-    let totalTransactionByType = 0;
-    for (const transaction of this.transactions) {
-      if (transaction.type === type) {
-        totalTransactionByType += transaction.amount;
-      }
-    }
-    return `Total ${type} transactions is ${totalTransactionByType} credits`;
-  },
-};
+//   /*
+//    * Метод повертає кількість коштів
+//    * певного типу транзакції з усієї історії транзакцій
+//    */
+//   getTransactionTotal(type) {
+//     let totalTransactionByType = 0;
+//     for (const transaction of this.transactions) {
+//       if (transaction.type === type) {
+//         totalTransactionByType += transaction.amount;
+//       }
+//     }
+//     return `Total ${type} transactions is ${totalTransactionByType} credits`;
+//   },
+// };
 
-console.log(account.deposit(5000));
-console.log(account.deposit(400));
-console.log(account.withdraw(1400));
-console.log(account.withdraw(14000));
-console.log(account.getBalance());
-console.log(account.getTransactionDetails(2));
-console.log(account.getTransactionTotal('deposit'));
-console.log(account.getTransactionTotal('withdraw'));
+// console.log(account.deposit(5000));
+// console.log(account.deposit(400));
+// console.log(account.withdraw(1400));
+// console.log(account.withdraw(14000));
+// console.log(account.getBalance());
+// console.log(account.getTransactionDetails(2));
+// console.log(account.getTransactionTotal('deposit'));
+// console.log(account.getTransactionTotal('withdraw'));
 
 // -----------------------------------------------------------------------
 
