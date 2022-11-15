@@ -248,7 +248,7 @@ onSale яких true.
 (Властивість onSale), відсортованих за зростанням ціни.
 */
 
-const getSortedCarsOnSale = (cars) =>
-  cars.filter((car) => car.onSale).sort((a, b) => a.price - b.price);
+// const getSortedCarsOnSale = (cars) =>
+//   cars.filter((car) => car.onSale).sort((a, b) => a.price - b.price);
 
-console.table(getSortedCarsOnSale(cars));
+// console.table(getSortedCarsOnSale(cars));
