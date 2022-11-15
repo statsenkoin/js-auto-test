@@ -157,3 +157,48 @@ onSale яких true.
 
 // console.table(getCarsWithType(cars, 'suv'));
 // console.table(getCarsWithType(cars, 'sedan'));
+
+/** Example 6 - Метод find*/
+
+// const getCarByModel = (cars, model) => cars.find((car) => car.model === model);
+
+// const getCarByModel = (cars, model) =>
+//   cars.find(({ model: carModel }) => carModel === model);
+
+// console.log(getCarByModel(cars, 'F-150'));
+// console.log(getCarByModel(cars, 'CX-9'));
+
+/** Example 7 - Метод sort
+Нехай функція sortByAscendingAmount повертає новий масив автомобілів відсортований 
+за зростанням значення якості amount.
+*/
+
+// const sortByDescendingPrice = (cars) => {
+//   return [...cars].sort((a, b) => a.amount - b.amount);
+// };
+// const sortByDescendingPrice = (cars) =>
+//   [...cars].sort((a, b) => a.amount - b.amount);
+
+// console.table(sortByDescendingPrice(cars));
+
+/** Example 8 - Метод sort
+Нехай функція sortByDescendingPrice повертає новий масив автомобілів 
+відсортований за зменшенням значення властивості price.
+*/
+
+// const sortByDescendingPrice = (cars) => {
+//   return cars.sort((a, b) => b.price - a.price);
+// };
+
+// console.table(sortByDescendingPrice(cars));
+
+/** Example 9 - Метод sort
+Нехай функція sortByModel повертає новий масив автомобілів відсортований 
+за назвою моделі в алфавітному та зворотному алфавітному порядку, 
+в залежності від значення параметра order.
+*/
+
+const sortByModel = (cars, order) => {};
+
+console.table(sortByModel(cars, 'asc'));
+console.table(sortByModel(cars, 'desc'));
