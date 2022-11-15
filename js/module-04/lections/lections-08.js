@@ -198,7 +198,33 @@ onSale яких true.
 в залежності від значення параметра order.
 */
 
-const sortByModel = (cars, order) => {};
+// const sortByModel = (cars, order) => {
+//   let carsInOrder = [];
+//   switch (order) {
+//     case 'asc':
+//       carsInOrder = cars.sort((a, b) => a.model.localeCompare(b.model));
+//       break;
+//     case 'desc':
+//       carsInOrder = cars.sort((a, b) => b.model.localeCompare(a.model));
+//       break;
+//   }
+//   return carsInOrder;
+// };
+// const sortByModel = (cars, order) => {
+//   if (order === 'asc')
+//     return [...cars].sort((a, b) => a.model.localeCompare(b.model));
+//   if (order === 'desc')
+//     return [...cars].sort((a, b) => b.model.localeCompare(a.model));
+// };
 
-console.table(sortByModel(cars, 'asc'));
-console.table(sortByModel(cars, 'desc'));
+// console.table(sortByModel(cars, 'asc'));
+// console.table(sortByModel(cars, 'desc'));
+
+/** Example 10 - Метод reduce
+Нехай функція getTotalAmount повертає загальну кількість автомобілів 
+(значення властивостей amount).
+*/
+
+const getTotalAmount = (cars) => cars.reduce();
+
+console.log(getTotalAmount(cars));
