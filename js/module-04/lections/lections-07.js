@@ -112,27 +112,63 @@ logTotalPrice(product) - колббек, що приймає об'єкт про�
 результати виклику коллбека.
 */
 
-const employees = [
-  {
-    name: 'Artur',
-    bonus: 64.5,
-  },
-  {
-    name: 'Ivan',
-    bonus: 49.2,
-  },
-  {
-    name: 'Makar',
-    bonus: 36,
-  },
-  {
-    name: 'Anastasiya',
-    bonus: 25,
-  },
-  {
-    name: 'Olha',
-    bonus: 165.13,
-  },
-];
+// const employees = [
+//   {
+//     name: 'Artur',
+//     bonus: 64.5,
+//   },
+//   {
+//     name: 'Ivan',
+//     bonus: 49.2,
+//   },
+//   {
+//     name: 'Makar',
+//     bonus: 36,
+//   },
+//   {
+//     name: 'Anastasiya',
+//     bonus: 25,
+//   },
+//   {
+//     name: 'Olha',
+//     bonus: 165.13,
+//   },
+// ];
 
-const each = (array, callback) => {};
+// // const newArr = [...employees].sort((a, b) => a.bonus - b.bonus);
+// // console.log(newArr);
+// let newArr = [];
+
+// const each = (array, callback) => {
+//   newArr = callback(array);
+//   return newArr;
+// };
+
+// const bonusList = (array) => {
+//   return [...array].sort((a, b) => a.bonus - b.bonus);
+// };
+
+// // ----------------------------------------------------------------------------
+// each(employees, bonusList);
+// console.log('employees', employees);
+// console.log('newArr', newArr);
+
+/** Example 4 - Стрілочні функції
+Виконайте рефакторинг коду за допомогою стрілочних функцій.
+*/
+
+function createProduct(partialProduct, callback) {
+  const product = { id: Date.now(), ...partialProduct };
+  callback(product);
+}
+
+function logProduct(product) {
+  console.log(product);
+}
+
+function logTotalPrice(product) {
+  console.log(product.price * product.quantity);
+}
+
+createProduct({ name: '🍎', price: 30, quantity: 3 }, logProduct);
+createProduct({ name: '🍋', price: 20, quantity: 5 }, logTotalPrice);
