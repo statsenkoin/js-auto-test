@@ -242,3 +242,13 @@ onSale яких true.
 //   cars.filter((car) => car.onSale).map((car) => car.model);
 
 // console.table(getModelsOnSale(cars));
+
+/** Example 12 - Ланцюжки методів
+Нехай функція getSortedCarsOnSale повертає масив автомобілів на розпродажі 
+(Властивість onSale), відсортованих за зростанням ціни.
+*/
+
+const getSortedCarsOnSale = (cars) =>
+  cars.filter((car) => car.onSale).sort((a, b) => a.price - b.price);
+
+console.table(getSortedCarsOnSale(cars));
