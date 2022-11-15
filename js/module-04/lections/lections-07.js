@@ -157,18 +157,39 @@ logTotalPrice(product) - колббек, що приймає об'єкт про�
 Виконайте рефакторинг коду за допомогою стрілочних функцій.
 */
 
-function createProduct(partialProduct, callback) {
-  const product = { id: Date.now(), ...partialProduct };
-  callback(product);
-}
+// const createProduct = (partialProduct, callback) =>
+//   callback({ id: Date.now(), ...partialProduct });
 
-function logProduct(product) {
-  console.log(product);
-}
+// // function logProduct(product) {
+// //   console.log(product);
+// // }
+// const logProduct = (product) => console.log(product);
 
-function logTotalPrice(product) {
-  console.log(product.price * product.quantity);
-}
+// // function logTotalPrice(product) {
+// //   console.log(product.price * product.quantity);
+// // }
+// const logTotalPrice = (product) =>
+//   console.log(product.price * product.quantity);
 
-createProduct({ name: '🍎', price: 30, quantity: 3 }, logProduct);
-createProduct({ name: '🍋', price: 20, quantity: 5 }, logTotalPrice);
+// createProduct({ name: '🍎', price: 30, quantity: 3 }, logProduct);
+// createProduct({ name: '🍋', price: 20, quantity: 5 }, logTotalPrice);
+
+/** Example 7 - Метод forEach
+Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
+*/
+
+// function logItems(items) {
+//   console.log(items);
+//   for (let i = 0; i < items.length; i += 1) {
+//     console.log(`${i + 1} - ${items[i]}`);
+//   }
+// }
+const logItems = (items) => {
+  console.log(items);
+  items.forEach((item) => {
+    console.log(`${items.indexOf(item) + 1} - ${item}`);
+  });
+};
+
+logItems(['Mango', 'Poly', 'Ajax']);
+logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
