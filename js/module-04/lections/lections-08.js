@@ -225,6 +225,20 @@ onSale яких true.
 (значення властивостей amount).
 */
 
-const getTotalAmount = (cars) => cars.reduce();
+// const getTotalAmount = (cars) =>
+//   cars.reduce((total, { amount }) => total + amount, 0);
 
-console.log(getTotalAmount(cars));
+// const getTotalAmount = (cars) =>
+//   cars.reduce((total, car) => total + car.amount, 0);
+
+// console.log(getTotalAmount(cars));
+
+/** Example 11 - Ланцюжки методів
+Нехай функція getAvailableCarNames повертає масив моделей автомобілів, 
+але тільки тих, які зараз на розпродажі.
+*/
+
+// const getModelsOnSale = (cars) =>
+//   cars.filter((car) => car.onSale).map((car) => car.model);
+
+// console.table(getModelsOnSale(cars));
