@@ -184,12 +184,63 @@ logTotalPrice(product) - колббек, що приймає об'єкт про�
 //     console.log(`${i + 1} - ${items[i]}`);
 //   }
 // }
-const logItems = (items) => {
-  console.log(items);
-  items.forEach((item) => {
-    console.log(`${items.indexOf(item) + 1} - ${item}`);
-  });
-};
+// const logItems = (items) => {
+//   console.log(items);
+//   items.forEach((item) => {
+//     console.log(`${items.indexOf(item) + 1} - ${item}`);
+//   });
+// };
+// const logItems = (items) => {
+//   console.log(items);
+//   items.forEach((item, index) => {
+//     console.log(`${index + 1} - ${item}`);
+//   });
+// };
 
-logItems(['Mango', 'Poly', 'Ajax']);
-logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
+// logItems(['Mango', 'Poly', 'Ajax']);
+// logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
+
+/** Example 8 - Метод forEach
+Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
+*/
+
+// // function printContactsInfo({ names, phones }) {
+// //   const nameList = names.split(',');
+// //   const phoneList = phones.split(',');
+// //   for (let i = 0; i < nameList.length; i += 1) {
+// //     console.log(`${nameList[i]}: ${phoneList[i]}`);
+// //   }
+// // }
+
+// const printContactsInfo = ({ names, phones }) => {
+//   const nameList = names.split(',');
+//   const phoneList = phones.split(',');
+//   nameList.forEach((name, index) => {
+//     console.log(`${name}: ${phoneList[index]}`);
+//   });
+// };
+
+// printContactsInfo({
+//   names: 'Jacob,William,Solomon,Artemis',
+//   phones: '89001234567,89001112233,890055566377,890055566300',
+// });
+/** Example 9 - Метод forEach
+Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
+*/
+
+// function calсulateAverage(...args) {
+//   let total = 0;
+//   for (let i = 0; i < args.length; i++) {
+//     total += args[i];
+//   }
+//   return total / args.length;
+// }
+// const calсulateAverage = (...args) => {
+//   let total = 0;
+//   args.forEach((arg) => (total += arg));
+//   return total / args.length;
+// };
+
+// console.log(calсulateAverage(1, 2, 3, 4)); // 2.5
+// console.log(calсulateAverage(14, 8, 2)); // 8
+// console.log(calсulateAverage(27, 43, 2, 8, 36)); // 23.2
