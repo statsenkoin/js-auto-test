@@ -59,20 +59,23 @@ const services = {
   },
 
   addOrder(menu, order) {
-    // console.log(menu, order);
+    console.log(menu, order);
     const orderStr = order.split(' ');
-    // console.log(orderStr);
+    console.log(orderStr);
     let newOrder = [];
     orderStr.forEach((element) => {
       menu.forEach((menuItem) => {
         if (menuItem[0].localeCompare(element)) newOrder.push(menuItem);
       });
     });
-    // console.log(newOrder);
+    console.log(newOrder);
     return newOrder;
   },
 
-  confirmOrder() {},
+  confirmOrder(restaurant, order) {
+    const confirmMessage = 'Your order is confirmed';
+    alert(`Your order is confirmed\nYour ${confirmMessage}`);
+  },
 };
 const torpedaDelivery = {
   order: [],
@@ -112,6 +115,7 @@ const torpedaDelivery = {
   chooseYourMeal() {
     this.chosenRestaurant = this.chooseRestaurant();
     this.chooseDishes(this.chosenRestaurant);
+    services.confirmOrder(this.choosenRestaurant, this.order);
   },
 };
 torpedaDelivery.chooseYourMeal();
