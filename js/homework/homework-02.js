@@ -38,49 +38,61 @@ const restaurants = [
 ];
 const services = {
   showMenu(menu, brand) {
-    // const menu = this.getMenu(restaurant);
+    let menuMessage = `Choose items from ${brand} menu:`;
+    // menu.forEach((menuItem) => {
+    //   menuMessage = menuMessage.concat(
+    //     menuItem[0],
+    //     ': ',
+    //     menuItem[1],
+    //     ' credits',
+    //     '\n'
+    //   );
+    // });
 
-    let menuMessage = `Choose items from ${brand} menu:\n`;
-    menu.forEach((menuItem) => {
-      menuMessage = menuMessage.concat(
-        menuItem[0],
-        ': ',
-        menuItem[1],
-        ' credits',
-        '\n'
-      );
-    });
-    console.log(menuMessage);
-    return prompt(menuMessage);
+    // const menuItems = Object.keys(menu);
+    // console.log('menuItems: ', menuItems);
+
+    // menuItems.forEach(
+    //   (item) =>
+    //     (menuMessage = menuMessage + `\n ${item}: ${menu[item]} credits`)
+    // );
+    // console.log('showMenu menuMessage:', menuMessage);
+
+    Object.keys(menu).forEach(
+      (item) =>
+        (menuMessage = menuMessage + `\n ${item}: ${menu[item]} credits`)
+    );
+
+    return prompt(menuMessage).split(' ');
   },
 
-  getMenu({ menu }) {
-    return Object.entries(menu);
+  getMenu(restaurant) {
+    return (this.chosenMenu = { ...restaurant.menu });
   },
 
-  addOrder(menu, order) {
-    console.log(menu, order);
-    const orderStr = order.split(' ');
-    console.log(orderStr);
+  addOrder(menu, orderedItems) {
     let newOrder = [];
-    orderStr.forEach((element) => {
-      menu.forEach((menuItem) => {
-        if (menuItem[0].localeCompare(element)) newOrder.push(menuItem);
-      });
+    orderedItems.forEach((item) => {
+      newOrder = { ...newOrder, [item]: menu[item] };
     });
-    console.log(newOrder);
     return newOrder;
   },
 
-  confirmOrder(restaurant, order) {
+  confirmOrder({ order, deliveryTime }) {
+    const menuItems = Object.keys(order).join(' and ');
+    const totalCost = Object.values(order).reduce((a, b) => a + b);
+
     const confirmMessage = 'Your order is confirmed';
-    alert(`Your order is confirmed\nYour ${confirmMessage}`);
+    const priceMessage = `Your ${menuItems} costs ${totalCost} credits`;
+    const deliveryMessage = `Expected delivery time is ${deliveryTime} minutes`;
+    alert(`${confirmMessage}\n${priceMessage}\n${deliveryMessage}`);
   },
 };
 const torpedaDelivery = {
   order: [],
   chosenBrand: '',
   chosenRestaurant: {},
+  chosenMenu: {},
   chooseMessage:
     'Choose your restaurant from the list.\nAvialable restaurants are:',
 
@@ -97,25 +109,37 @@ const torpedaDelivery = {
       this.chooseMessage + ` ${restaurantsList.join(', ')}`
     );
 
-    return restaurants.find(
+    this.chosenRestaurant = restaurants.find(
       (restaurant) => restaurant.brand === this.chosenBrand
     );
   },
 
   chooseDishes(restaurant) {
-    const menu = services.getMenu(restaurant);
+    this.chosenMenu = services.getMenu(restaurant);
+    console.log('chosenMenu: ', this.chosenMenu);
 
-    // console.log('restaurant: ', restaurant);
-    const orderStr = services.showMenu(menu, this.chosenBrand);
-    // console.log(orderStr);
-    this.order = services.addOrder(menu, orderStr);
-    console.log(this.order);
+    const orderedItems = services.showMenu(this.chosenMenu, this.chosenBrand);
+    console.log('orderedItems: ', orderedItems);
+
+    // this.order = services.addOrder(this.chosenMenu, orderedItems);
+    // console.log('order: ', this.order);
+    // this.chosenRestaurant.order = this.order;
+
+    this.chosenRestaurant.order = services.addOrder(
+      this.chosenMenu,
+      orderedItems
+    );
+    console.log('this.chosenRestaurant: ', this.chosenRestaurant);
   },
 
   chooseYourMeal() {
-    this.chosenRestaurant = this.chooseRestaurant();
+    this.chooseRestaurant();
+    console.log('chosenBrand: ', this.chosenBrand);
+    console.log('choosenRestaurant: ', this.chosenRestaurant);
+
     this.chooseDishes(this.chosenRestaurant);
-    services.confirmOrder(this.choosenRestaurant, this.order);
+
+    services.confirmOrder(this.chosenRestaurant);
   },
 };
 torpedaDelivery.chooseYourMeal();
