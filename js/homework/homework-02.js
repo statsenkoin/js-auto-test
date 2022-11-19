@@ -350,7 +350,7 @@ const services = {
       (item) =>
         (menuMessage = menuMessage + `\n ${item}: ${menu[item]} credits`)
     );
-    return torpedaDelivery.getUserInput(menuMessage);
+    torpedaDelivery.userInput = torpedaDelivery.getUserInput(menuMessage);
   },
 
   getMenu(restaurant) {
@@ -459,9 +459,9 @@ const torpedaDelivery = {
 
     this.chooseDishes(this.chosenRestaurant);
 
-    // services.confirmOrder(this.chosenRestaurant);
-    // this.order = {};
-    // console.log('order: ', this.order);
+    services.confirmOrder(this.chosenRestaurant);
+    this.order = {};
+    console.log('order: ', this.order);
   },
 };
 torpedaDelivery.chooseYourMeal();
