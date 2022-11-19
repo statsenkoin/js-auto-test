@@ -154,6 +154,162 @@
 // ===== version 2 ============================================================
 // ============================================================================
 
+// const restaurants = [
+//   {
+//     order: {},
+//     brand: 'KFC',
+//     menu: {
+//       chicken: 50,
+//       burger: 50,
+//       cola: 27,
+//     },
+//     deliveryTime: 60,
+//   },
+//   {
+//     order: {},
+//     brand: 'mcDonalds',
+//     menu: {
+//       cola: 25,
+//       sprite: 22,
+//       cheeseburger: 30,
+//       humburger: 37,
+//     },
+//     deliveryTime: 30,
+//   },
+//   {
+//     order: {},
+//     brand: 'Burger King',
+//     menu: {
+//       burgerXXL: 170,
+//       burger: 70,
+//       sprite: 25,
+//     },
+//     deliveryTime: 20,
+//   },
+// ];
+// const services = {
+//   showMenu(menu) {
+//     let menuMessage = `Choose items from menu:`;
+//     Object.keys(menu).forEach(
+//       (item) =>
+//         (menuMessage = menuMessage + `\n ${item}: ${menu[item]} credits`)
+//     );
+//     const userMenu = prompt(menuMessage);
+
+//     if (!torpedaDelivery.checkUserInput(userMenu)) return;
+
+//     return userMenu;
+//   },
+
+//   getMenu(restaurant) {
+//     return (this.chosenMenu = restaurant.menu);
+//   },
+
+//   addOrder(menu, orderedItems) {
+//     // const myMenu = Object.keys(menu).filter((item) =>
+//     //   orderedItems.toLowerCase().includes(item.toLowerCase())
+//     // );
+//     let newOrder = {};
+//     Object.keys(menu)
+//       .filter((item) => orderedItems.toLowerCase().includes(item.toLowerCase()))
+//       .forEach((item) => {
+//         newOrder = { ...newOrder, [item]: menu[item] };
+//       });
+//     return newOrder;
+//   },
+
+//   confirmOrder({ order, deliveryTime }) {
+//     const menuItems = Object.keys(order).join(' and ');
+//     const totalCost = Object.values(order).reduce((a, b) => a + b);
+
+//     const confirmMessage = 'Your order is confirmed';
+//     const priceMessage = `Your ${menuItems} costs ${totalCost} credits`;
+//     const deliveryMessage = `Expected delivery time is ${deliveryTime} minutes`;
+//     alert(`${confirmMessage}\n${priceMessage}\n${deliveryMessage}`);
+//   },
+// };
+// const torpedaDelivery = {
+//   order: {},
+//   chosenRestaurant: {},
+//   chosenMenu: {},
+
+//   getAvailableRestaurants(restaurants) {
+//     return restaurants.map((restaurant) => restaurant.brand);
+//   },
+
+//   chooseRestaurant() {
+//     const restaurantsList = this.getAvailableRestaurants(restaurants);
+//     // ------------------------------
+//     console.log('restaurantsList: ', restaurantsList);
+//     // ------------------------------
+
+//     const chooseMessage =
+//       'Choose your restaurant from the list.\nAvialable restaurants are:';
+//     let userInput = prompt(`${chooseMessage} ${restaurantsList.join(', ')}`);
+
+//     if (!this.checkUserInput(userInput)) return;
+
+//     const chosenBrand = restaurantsList.find((item) =>
+//       userInput.toLowerCase().includes(item.toLowerCase())
+//     );
+
+//     this.chosenRestaurant = restaurants.find(
+//       (restaurant) => restaurant.brand === chosenBrand
+//     );
+
+//     // ---------------------------------------------------------
+//     console.log('chosenBrand: ', chosenBrand);
+//     console.log('choosenRestaurant: ', this.chosenRestaurant);
+//     // ---------------------------------------------------------
+//   },
+
+//   chooseDishes(restaurant) {
+//     this.chosenMenu = services.getMenu(restaurant);
+//     console.log('chosenMenu: ', this.chosenMenu);
+
+//     const orderedItems = services.showMenu(this.chosenMenu);
+//     console.log('orderedItems: ', orderedItems);
+
+//     if (orderedItems) {
+//       this.chosenRestaurant.order = services.addOrder(
+//         this.chosenMenu,
+//         orderedItems
+//       );
+//       console.log('this.chosenRestaurant: ', this.chosenRestaurant);
+//     }
+//   },
+
+//   checkUserInput(input) {
+//     if (input === null) {
+//       alert('Cancelled by user');
+//       return null;
+//     }
+
+//     if (input === '') {
+//       alert('Invalid input. Try again...');
+//       this.chooseRestaurant();
+//       return null;
+//     }
+
+//     return true;
+//   },
+
+//   chooseYourMeal() {
+//     this.chooseRestaurant();
+//     console.log('this.chosenRestaurant: ', this.chosenRestaurant);
+//     if (this.chosenRestaurant) this.chooseDishes(this.chosenRestaurant);
+//     services.confirmOrder(this.chosenRestaurant);
+//     this.order = {};
+//     console.log('order: ', this.order);
+//   },
+// };
+// torpedaDelivery.chooseYourMeal();
+// // torpedaDelivery.chooseRestaurant();
+
+// ============================================================================
+// ===== version 3 ============================================================
+// ============================================================================
+
 const restaurants = [
   {
     order: {},
@@ -178,7 +334,7 @@ const restaurants = [
   },
   {
     order: {},
-    brand: 'Burger King',
+    brand: 'BurgerKing',
     menu: {
       burgerXXL: 170,
       burger: 70,
@@ -194,11 +350,7 @@ const services = {
       (item) =>
         (menuMessage = menuMessage + `\n ${item}: ${menu[item]} credits`)
     );
-    const userMenu = prompt(menuMessage);
-
-    if (!torpedaDelivery.checkUserInput(userMenu)) return;
-
-    return userMenu;
+    return torpedaDelivery.getUserInput(menuMessage);
   },
 
   getMenu(restaurant) {
@@ -232,9 +384,10 @@ const torpedaDelivery = {
   order: {},
   chosenRestaurant: {},
   chosenMenu: {},
+  userInput: '',
 
   getAvailableRestaurants(restaurants) {
-    return restaurants.map((restaurant) => restaurant.brand);
+    return restaurants.map((restaurant) => restaurant.brand.toLowerCase());
   },
 
   chooseRestaurant() {
@@ -243,18 +396,22 @@ const torpedaDelivery = {
     console.log('restaurantsList: ', restaurantsList);
     // ------------------------------
 
-    const chooseMessage =
-      'Choose your restaurant from the list.\nAvialable restaurants are:';
-    let userInput = prompt(`${chooseMessage} ${restaurantsList.join(', ')}`);
+    const chooseMessage = `Choose your restaurant from the list.\nAvialable restaurants are: ${restaurantsList.join(
+      ', '
+    )}`;
 
-    if (!this.checkUserInput(userInput)) return;
+    this.userInput = this.getUserInput(chooseMessage);
+    // --------------------------------
+    console.log('userInput: ', this.userInput);
+    // --------------------------------
+    if (!this.userInput) return;
 
-    const chosenBrand = restaurantsList.find((item) =>
-      userInput.toLowerCase().includes(item.toLowerCase())
+    const chosenBrand = this.userInput.find((item) =>
+      restaurantsList.includes(item)
     );
 
     this.chosenRestaurant = restaurants.find(
-      (restaurant) => restaurant.brand === chosenBrand
+      (restaurant) => restaurant.brand.toLowerCase() === chosenBrand
     );
 
     // ---------------------------------------------------------
@@ -279,28 +436,32 @@ const torpedaDelivery = {
     }
   },
 
-  checkUserInput(input) {
-    if (input === null) {
-      alert('Cancelled by user');
-      return null;
-    }
+  getUserInput(message) {
+    let input = '';
+    while (!input) {
+      input = prompt(message);
+      if (input === null) {
+        alert('Cancelled by user');
+        return;
+      }
 
-    if (input === '') {
-      alert('Invalid input. Try again...');
-      this.chooseRestaurant();
-      return null;
+      if (input === '') {
+        alert('Invalid input. Try again...');
+        continue;
+      }
+      return input.toLowerCase().split(/\W+/);
     }
-
-    return true;
   },
 
   chooseYourMeal() {
     this.chooseRestaurant();
-    console.log('this.chosenRestaurant: ', this.chosenRestaurant);
-    if (this.chosenRestaurant) this.chooseDishes(this.chosenRestaurant);
-    services.confirmOrder(this.chosenRestaurant);
-    this.order = null;
-    console.log('order: ', this.order);
+    if (!this.userInput) return;
+
+    this.chooseDishes(this.chosenRestaurant);
+
+    // services.confirmOrder(this.chosenRestaurant);
+    // this.order = {};
+    // console.log('order: ', this.order);
   },
 };
 torpedaDelivery.chooseYourMeal();
