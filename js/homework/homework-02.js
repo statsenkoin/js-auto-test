@@ -350,7 +350,7 @@ const services = {
       (item) =>
         (menuMessage = menuMessage + `\n ${item}: ${menu[item]} credits`)
     );
-    torpedaDelivery.userInput = torpedaDelivery.getUserInput(menuMessage);
+    return torpedaDelivery.getUserInput(menuMessage);
   },
 
   getMenu(restaurant) {
@@ -424,10 +424,13 @@ const torpedaDelivery = {
     this.chosenMenu = services.getMenu(restaurant);
     console.log('chosenMenu: ', this.chosenMenu);
 
-    const orderedItems = services.showMenu(this.chosenMenu);
-    console.log('orderedItems: ', orderedItems);
+    // const orderedItems = services.showMenu(this.chosenMenu);
+    // console.log('orderedItems: ', orderedItems);
+    this.userInput = services.showMenu(this.chosenMenu);
+    console.log('orderedItems: ', this.userInput);
 
-    if (orderedItems) {
+    // if (orderedItems) {
+    if (this.userInput) {
       this.chosenRestaurant.order = services.addOrder(
         this.chosenMenu,
         orderedItems
@@ -442,6 +445,7 @@ const torpedaDelivery = {
       input = prompt(message);
       if (input === null) {
         alert('Cancelled by user');
+        this.userInput = '';
         return;
       }
 
@@ -458,10 +462,11 @@ const torpedaDelivery = {
     if (!this.userInput) return;
 
     this.chooseDishes(this.chosenRestaurant);
+    if (!this.userInput) return;
 
-    services.confirmOrder(this.chosenRestaurant);
-    this.order = {};
-    console.log('order: ', this.order);
+    // services.confirmOrder(this.chosenRestaurant);
+    // this.order = {};
+    // console.log('order: ', this.order);
   },
 };
 torpedaDelivery.chooseYourMeal();
