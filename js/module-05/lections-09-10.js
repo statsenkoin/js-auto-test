@@ -255,3 +255,74 @@ removeItem(item) - отримує товар і, якщо він є, видал�
 }
 Додай методи addNote(note), removeNote(text) та updatePriority(text, newPriority).
 */
+
+// class Notes {
+//   static Priority = {
+//     LOW: 'low',
+//     NORMAL: 'normal',
+//     HIGH: 'high',
+//   };
+//   constructor(arr) {
+//     this.items = arr;
+//   }
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+//   removeNote(text) {
+//     const index = this.items.findIndex((item) => item.text === text);
+//     if (!!~index) this.items.splice(index, 1);
+//   }
+//   updatePriority(text, newPriority) {
+//     const index = this.items.findIndex((item) => item.text === text);
+//     if (!!~index) this.items[index].priority = newPriority;
+//   }
+// }
+
+// const myNotes = new Notes([]);
+
+// myNotes.addNote({ text: 'Моя перша замітка', priority: Notes.Priority.LOW });
+// console.log(myNotes.items);
+
+// myNotes.addNote({
+//   text: 'Моя друга замітка',
+//   priority: Notes.Priority.NORMAL,
+// });
+// console.log(myNotes.items);
+
+// // myNotes.removeNote('Моя перша замітка');
+// // console.log(myNotes.items);
+
+// myNotes.updatePriority('Моя друга замітка', Notes.Priority.HIGH);
+// console.log(myNotes.items);
+
+/** Example 5 - Toggle
+Напишіть клас Toggle який приймає об'єкт налаштувань {isOpen: boolean} і 
+оголошує одну властивість on - стан вкл/викл (true/false). За замовчуванням 
+значення властивості on повинно бути false.
+*/
+
+class Toggle {
+  constructor(on = { isOpen: false }) {
+    this.on = on;
+  }
+  toggle() {
+    this.on.isOpen = !this.on.isOpen;
+  }
+}
+
+const zeroToggle = new Toggle();
+console.log(zeroToggle);
+const firstToggle = new Toggle({ isOpen: true });
+
+console.group('firstToggle');
+console.log(firstToggle.on);
+firstToggle.toggle();
+console.log(firstToggle.on);
+console.groupEnd('firstToggle');
+
+const secondToggle = new Toggle();
+console.group('secondToggle');
+console.log(secondToggle.on);
+secondToggle.toggle();
+console.log(secondToggle.on);
+console.groupEnd('secondToggle');
