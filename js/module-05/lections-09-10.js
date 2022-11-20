@@ -301,28 +301,51 @@ removeItem(item) - отримує товар і, якщо він є, видал�
 значення властивості on повинно бути false.
 */
 
-class Toggle {
-  constructor(on = { isOpen: false }) {
-    this.on = on;
-  }
-  toggle() {
-    this.on.isOpen = !this.on.isOpen;
-  }
-}
+// class Toggle {
+//   constructor(on = { isOpen: false }) {
+//     this.on = on;
+//   }
+//   toggle() {
+//     this.on.isOpen = !this.on.isOpen;
+//   }
+// }
 
-const zeroToggle = new Toggle();
-console.log(zeroToggle);
-const firstToggle = new Toggle({ isOpen: true });
+// const zeroToggle = new Toggle();
+// console.log(zeroToggle);
+// const firstToggle = new Toggle({ isOpen: true });
 
-console.group('firstToggle');
-console.log(firstToggle.on);
-firstToggle.toggle();
-console.log(firstToggle.on);
-console.groupEnd('firstToggle');
+// console.group('firstToggle');
+// console.log(firstToggle.on);
+// firstToggle.toggle();
+// console.log(firstToggle.on);
+// console.groupEnd('firstToggle');
 
-const secondToggle = new Toggle();
-console.group('secondToggle');
-console.log(secondToggle.on);
-secondToggle.toggle();
-console.log(secondToggle.on);
-console.groupEnd('secondToggle');
+// const secondToggle = new Toggle();
+// console.group('secondToggle');
+// console.log(secondToggle.on);
+// secondToggle.toggle();
+// console.log(secondToggle.on);
+// console.groupEnd('secondToggle');
+
+// ============================================================================
+// ===== замикання closures ===================================================
+// ============================================================================
+
+// function foo(param) {
+//   const value = 10;
+//   const value2 = 15;
+
+//   function boo(someValue) {
+//     return value + value2 * someValue;
+//   }
+
+//   if (param > 20) {
+//     return boo;
+//   } else {
+//     return value;
+//   }
+// }
+// console.log(foo(10));
+// console.log(foo(25)(11));
+// const result = foo(25);
+// console.log(result(11));
