@@ -802,3 +802,11 @@ const products = [
     qty: 1,
   },
 ];
+
+function sortByID(products) {
+  products.forEach((element) => {});
+}
+
+console.log('Before sorting: ', products);
+sortByID(products);
+console.log('After sorting: ', products);
