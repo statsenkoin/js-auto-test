@@ -671,61 +671,134 @@ removeItem(item) - отримує товар і, якщо він є, видал�
 нарцис не знає нікого.
 */
 
-const people1 = [
-  {
-    name: 'Alex',
-    know: ['Eva', 'Jhon'],
-  },
-  {
-    name: 'Ivan',
-    know: ['Jhon', 'Alex'],
-  },
-  {
-    name: 'Eva',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Jhon',
-    know: ['Alex'],
-  },
-]; //Not found
+// const people1 = [
+//   {
+//     name: 'Alex',
+//     know: ['Eva', 'Jhon'],
+//   },
+//   {
+//     name: 'Ivan',
+//     know: ['Jhon', 'Alex'],
+//   },
+//   {
+//     name: 'Eva',
+//     know: ['Alex', 'Jhon'],
+//   },
+//   {
+//     name: 'Jhon',
+//     know: ['Alex'],
+//   },
+// ]; //Not found
 
-const people2 = [
-  {
-    name: 'Alex',
-    know: ['Eva', 'Jhon'],
-  },
-  {
-    name: 'Jhon',
-    know: [],
-  },
-  {
-    name: 'Eva',
-    know: [],
-  },
-  {
-    name: 'Ivan',
-    know: ['Jhon', 'Alex'],
-  },
-]; // Not found
+// const people2 = [
+//   {
+//     name: 'Alex',
+//     know: ['Eva', 'Jhon'],
+//   },
+//   {
+//     name: 'Jhon',
+//     know: [],
+//   },
+//   {
+//     name: 'Eva',
+//     know: [],
+//   },
+//   {
+//     name: 'Ivan',
+//     know: ['Jhon', 'Alex'],
+//   },
+// ]; // Not found
 
-const people3 = [
-  {
-    name: 'Alex',
-    know: ['Eva', 'Jhon'],
-  },
-  {
-    name: 'Jhon',
-    know: [],
-  },
-  {
-    name: 'Eva',
-    know: ['Alex', 'Jhon'],
-  },
-  {
-    name: 'Ivan',
-    know: ['Jhon', 'Alex'],
-  },
-]; // Jhon
+// const people3 = [
+//   {
+//     name: 'Alex',
+//     know: ['Eva', 'Jhon'],
+//   },
+//   {
+//     name: 'Jhon',
+//     know: [],
+//   },
+//   {
+//     name: 'Eva',
+//     know: ['Alex', 'Jhon'],
+//   },
+//   {
+//     name: 'Ivan',
+//     know: ['Jhon', 'Alex'],
+//   },
+// ]; // Jhon
 
-function findNarciss(peoples) {}
+// function findNarciss(peopleList) {
+//   let narcissName = '';
+//   const narcissList = [];
+
+//   // список (масив) імен можливих нарцисів - ті, хто нікого не знає
+//   peopleList
+//     .filter((person) => person.know.length === 0)
+//     .forEach((person) => {
+//       narcissList.push(person.name);
+//     });
+//   console.log('Possible narcisses: ', narcissList);
+
+//   // нарцисс може бути тільки один
+//   if (narcissList.length !== 1) {
+//     narcissName = 'not found';
+//     return narcissName;
+//   }
+
+//   // список (масив об'єктів) не нарцисів - ті, хто хоч когось знає
+//   const personsList = peopleList.filter((person) => person.know.length !== 0);
+//   // console.log('Not narcisses: ', personsList);
+
+//   // нарциса мають знати всі
+//   narcissName = narcissList[0];
+//   personsList.forEach((person) => {
+//     if (!person.know.includes(narcissName)) narcissName = 'not found';
+//   });
+
+//   return narcissName;
+// }
+
+// console.log('Narciss is', findNarciss(people1));
+// console.log('Narciss is', findNarciss(people2));
+// console.log('Narciss is', findNarciss(people3));
+
+/** Task 7
+Створити функцію яка приймає 1 параметр масив продуктів 
+і повертає мутований масив
+Потрібно перебрати масив і якщо він має об'єкти в яких дублюються 
+айді то квонтіті цих елементів потрібно сплюсувати, а ті обє'кти 
+в яких айді співпав видалити з масиву.
+(Потрібно мутувати масив, створювати новий не потрібно)
+*/
+
+const products = [
+  {
+    id: 'sku1',
+    qty: 1,
+  },
+  {
+    id: 'sku2',
+    qty: 2,
+  },
+  {
+    id: 'sku3',
+    qty: 3,
+  },
+  {
+    id: 'sku1',
+    qty: 6,
+  },
+  {
+    id: 'sku1',
+    qty: 8,
+  },
+  {
+    id: 'sku2',
+    qty: 19,
+  },
+  {
+    id: 'sku4',
+    qty: 1,
+  },
+];
