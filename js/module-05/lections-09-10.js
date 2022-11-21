@@ -349,3 +349,383 @@ removeItem(item) - отримує товар і, якщо він є, видал�
 // console.log(foo(25)(11));
 // const result = foo(25);
 // console.log(result(11));
+
+// ============================================================================
+// ===== Tasks ================================================================
+// ============================================================================
+
+/** Task 1
+1 Створити метод об'єкту який буде приймати 1 параметр назву факультету 
+та повертати списoк імен учнів факультету
+2 Створити метод об'єкту який буде приймати 1 параметр назву факультету 
+та повертати кількість очків факультета
+3 Створити метод об'єкту який буде виводити ім'я факультету 
+в якого більше очків
+*/
+
+// const hogvarts = {
+//   griffindor: [
+//     {
+//       name: 'Harry',
+//       points: 17,
+//     },
+//     {
+//       name: 'Hermiona',
+//       points: 19,
+//     },
+//     {
+//       name: 'Ron',
+//       points: 14,
+//     },
+//   ],
+//   sliserin: [
+//     {
+//       name: 'Draco',
+//       points: 17,
+//     },
+//     {
+//       name: 'Goyl',
+//       points: 14,
+//     },
+//     {
+//       name: 'Crabbe',
+//       points: 5,
+//     },
+//   ],
+
+//   getStudents(school) {
+//     // const mySchool = this[school];
+//     // console.log(mySchool);
+//     // const names = mySchool.map((mate) => mate.name);
+//     // console.log(names);
+
+//     return this[school].map((mate) => mate.name);
+//   },
+
+//   getTotalPoints(school) {
+//     // const mySchool = this[school];
+//     // console.log(mySchool);
+//     // const points = mySchool.reduce((acc, mate) => acc + mate.points, 0);
+//     // console.log(points);
+
+//     return this[school].reduce((acc, mate) => acc + mate.points, 0);
+//   },
+
+//   getWinner() {
+//     // ----- varuant 1 якщо факультети відомі і не змінюються -----------------
+//     // const griffindorPoint = this.griffindor.reduce(
+//     //   (acc, mate) => acc + mate.points,
+//     //   0
+//     // );
+//     // const sliserinPoint = this.sliserin.reduce(
+//     //   (acc, mate) => acc + mate.points,
+//     //   0
+//     // );
+//     // return griffindorPoint > sliserinPoint ? 'griffindor' : 'sliserin';
+
+//     // ----- variant 2 якщо факультети можуть змінитись -----------------------
+//     const schools = Object.keys(hogvarts).filter((key) =>
+//       Array.isArray(this[key])
+//     );
+//     console.log(schools);
+
+//     return schools.reduce(
+//       (acc, school) => (this[school].points > acc ? school : acc),
+//       schools[0]
+//     );
+//   },
+// };
+
+// console.log('getStudents in griffindor: ', hogvarts.getStudents('griffindor'));
+// console.log('getStudents in sliserin: ', hogvarts.getStudents('sliserin'));
+
+// console.log(
+//   'getTotalPoints in griffindor: ',
+//   hogvarts.getTotalPoints('griffindor')
+// );
+// console.log(
+//   'getTotalPoints in sliserin: ',
+//   hogvarts.getTotalPoints('sliserin')
+// );
+
+// console.log('getWinner: ', hogvarts.getWinner());
+
+/** Task 2
+Створити функцію яка буде приймати 2 параметра.
+1 Масив студентів.
+2 Мову програмування яку потрібно знайти.
+Функція повертає масив імен користувачів які вивчають цю мову.
+*/
+
+// const students = [
+//   {
+//     name: `Lika`,
+//     language: `html`,
+//   },
+//   {
+//     name: `Anton`,
+//     language: `css`,
+//   },
+//   {
+//     name: `Andriy`,
+//     language: `js`,
+//   },
+//   {
+//     name: `Vova`,
+//     language: `html`,
+//   },
+//   {
+//     name: `Alina`,
+//     language: `css`,
+//   },
+//   {
+//     name: `Egor`,
+//     language: `js`,
+//   },
+//   {
+//     name: `Aleksandr`,
+//     language: `html`,
+//   },
+//   {
+//     name: `Taras`,
+//     language: `css`,
+//   },
+//   {
+//     name: `Ivan`,
+//     language: `js`,
+//   },
+//   {
+//     name: `Make`,
+//     language: `html`,
+//   },
+// ];
+
+// function studentsByLanguage(students, language) {
+//   return students
+//     .filter((student) => student.language === language)
+//     .map((student) => student.name); //[]
+// }
+
+// console.log(studentsByLanguage(students, 'html'));
+// console.log(studentsByLanguage(students, 'css'));
+// console.log(studentsByLanguage(students, 'js'));
+
+/** task 3
+Порахувати скільки ззаробив кожен  юзер
+(функція приймає 2 параметри
+1 параметр масив
+2 параметр імя робітника
+Функція повертає скільки він заробив (salary*month) )
+
+Порахувати загальну суму заробітку всіх робітників()
+функція приймає 1 параметр масив, 
+повертає загальну суму заробітку всіх робітників);
+*/
+
+// const workers = [
+//   {
+//     name: 'Alex',
+//     salary: 3500,
+//     month: 12,
+//   },
+//   {
+//     name: 'Dima',
+//     salary: 2500,
+//     month: 9,
+//   },
+//   {
+//     name: 'Oleg',
+//     salary: 1500,
+//     month: 36,
+//   },
+// ];
+
+// const workerSalary = function (workersArr, workerName) {
+//   const worker = workersArr.find(({ name }) => name === workerName);
+//   return worker.salary * worker.month;
+// };
+
+// function totalSalary(workersArr) {
+//   // return workersArr.reduce(
+//   //   (acc, worker) => (acc += worker.salary * worker.month),
+//   //   0
+//   // );
+//   return workersArr.reduce(
+//     (acc, { salary, month }) => (acc += salary * month),
+//     0
+//   );
+// }
+
+// console.log(workerSalary(workers, 'Alex'));
+// console.log(workerSalary(workers, 'Dima'));
+// console.log(workerSalary(workers, 'Oleg'));
+// console.log(totalSalary(workers));
+
+/** Task 4
+1 Створити функцію яка буде приймати 2 параметри
+   1 параметр масив
+   2 параметр назва книги
+Функція повертає Імена юзерів (формат стрінги) в яких є ця книга ("Harry Potter") 
+\\\ "Anna, Oleksii"
+
+2 Порахувати вік всіх юзерів у яких є ключ age.
+*/
+
+// const friends = [
+//   { name: 'Anna', books: ['Bible', 'Harry Potter'], age: 21 },
+//   { name: 'Bob', books: ['War and peace', 'Romeo and Juliet'], age: 26 },
+//   { name: 'Alice', books: ['War and peace', 'Romeo and Juliet'] },
+//   {
+//     name: 'Oleksii',
+//     books: ['Bible', 'War and peace', 'Harry Potter', 'Romeo and Juliet'],
+//     age: 26,
+//   },
+// ];
+
+// function getUserByBook(users, book) {
+//   return users
+//     .filter((user) => user.books.includes(book))
+//     .map((user) => user.name)
+//     .join(', ');
+// }
+// function getUsersAge(users) {
+//   let totalAge = 0;
+//   users.forEach((user) => {
+//     if (Object.keys(user).includes('age')) totalAge += user.age;
+//   });
+//   return totalAge;
+// }
+
+// console.log(getUserByBook(friends, 'Harry Potter'));
+// console.log(getUserByBook(friends, 'Romeo and Juliet'));
+// console.log(getUsersAge(friends));
+
+/** Task 5
+Потрібно створити 4 методи об'єкту
+1 виводить суму на карті (назву вводимо в prompt())
+2 додає нову карту (назву вводимо в prompt())
+3 зняти з карти (назву вводимо в prompt() та суму в prompt())
+4 додати на карту (назву вводимо в prompt() та суму в prompt())
+*/
+
+// const bankSystem = {
+//   privat: 1000,
+//   mono: 1500,
+//   checkCard() {
+//     const name = prompt('Enter bank name to check your credit card:');
+//     if (Object.keys(this).includes(name)) {
+//       alert(`You have $${this[name]} on your ${name}bank credit card`);
+//     } else {
+//       alert('Thereis no such bank account\nTry again...');
+//       this.checkCard();
+//     }
+//   },
+//   addcard() {
+//     const name = prompt('Enter bank name to add your credit card:');
+//     if (Object.keys(this).includes(name)) {
+//       alert('This bank account is already exist');
+//     } else {
+//       this[name] = 0;
+//       alert(`Your credit card added successfully`);
+//     }
+//   },
+//   deposit() {
+//     const name = prompt('Enter bank name to put money onto your credit card:');
+//     if (Object.keys(this).includes(name)) {
+//       const amount = prompt(
+//         'Enter amount of money to put onto your credit card:'
+//       );
+//       this[name] = Number(this[name]) + Number(amount);
+//       alert(`Your account updated successfull\nTotal amount is $${this[name]}`);
+//     } else {
+//       alert('Thereis no such bank account\nTry again...');
+//       // this.deposit();
+//     }
+//   },
+//   withdrow() {
+//     const name = prompt('Enter bank name to get money from your credit card:');
+//     if (Object.keys(this).includes(name)) {
+//       const amount = prompt(
+//         'Enter amount of money to get from your credit card:'
+//       );
+//       if (amount > this[name]) {
+//         alert('Not enougth money...');
+//       } else {
+//         this[name] = Number(this[name]) - Number(amount);
+//         alert(`Operation successfull\nTotal amount is $${this[name]}`);
+//       }
+//     }
+//   },
+// };
+
+// bankSystem.checkCard();
+// bankSystem.addcard();
+// console.log(bankSystem);
+// bankSystem.checkCard();
+
+// bankSystem.deposit();
+// bankSystem.withdrow();
+
+/** Task 6
+Створити функцію яка буде шукати нарциса. Головна умова - нарциса знають всі, 
+нарцис не знає нікого.
+*/
+
+const people1 = [
+  {
+    name: 'Alex',
+    know: ['Eva', 'Jhon'],
+  },
+  {
+    name: 'Ivan',
+    know: ['Jhon', 'Alex'],
+  },
+  {
+    name: 'Eva',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Jhon',
+    know: ['Alex'],
+  },
+]; //Not found
+
+const people2 = [
+  {
+    name: 'Alex',
+    know: ['Eva', 'Jhon'],
+  },
+  {
+    name: 'Jhon',
+    know: [],
+  },
+  {
+    name: 'Eva',
+    know: [],
+  },
+  {
+    name: 'Ivan',
+    know: ['Jhon', 'Alex'],
+  },
+]; // Not found
+
+const people3 = [
+  {
+    name: 'Alex',
+    know: ['Eva', 'Jhon'],
+  },
+  {
+    name: 'Jhon',
+    know: [],
+  },
+  {
+    name: 'Eva',
+    know: ['Alex', 'Jhon'],
+  },
+  {
+    name: 'Ivan',
+    know: ['Jhon', 'Alex'],
+  },
+]; // Jhon
+
+function findNarciss(peoples) {}
