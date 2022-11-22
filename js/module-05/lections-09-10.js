@@ -772,48 +772,48 @@ removeItem(item) - отримує товар і, якщо він є, видал�
 (Потрібно мутувати масив, створювати новий не потрібно)
 */
 
-const products = [
-  {
-    id: 'sku1',
-    qty: 1,
-  },
-  {
-    id: 'sku2',
-    qty: 2,
-  },
-  {
-    id: 'sku3',
-    qty: 3,
-  },
-  {
-    id: 'sku1',
-    qty: 6,
-  },
-  {
-    id: 'sku1',
-    qty: 8,
-  },
-  {
-    id: 'sku2',
-    qty: 19,
-  },
-  {
-    id: 'sku4',
-    qty: 1,
-  },
-];
+// const products = [
+//   {
+//     id: 'sku1',
+//     qty: 1,
+//   },
+//   {
+//     id: 'sku2',
+//     qty: 2,
+//   },
+//   {
+//     id: 'sku3',
+//     qty: 3,
+//   },
+//   {
+//     id: 'sku1',
+//     qty: 6,
+//   },
+//   {
+//     id: 'sku1',
+//     qty: 8,
+//   },
+//   {
+//     id: 'sku2',
+//     qty: 19,
+//   },
+//   {
+//     id: 'sku4',
+//     qty: 1,
+//   },
+// ];
 
-function sortByID(productsList) {
-  return productsList.reduce((acc, product) => {
-    const index = acc.findIndex((el) => el.id === product.id);
+// function sortByID(productsList) {
+//   return productsList.reduce((acc, product) => {
+//     const index = acc.findIndex((el) => el.id === product.id);
 
-    if (index === -1) {
-      acc.push(product);
-    } else {
-      acc[index].qty += product.qty;
-    }
-    return acc;
-  }, []);
-}
+//     if (index === -1) {
+//       acc.push(product);
+//     } else {
+//       acc[index].qty += product.qty;
+//     }
+//     return acc;
+//   }, []);
+// }
 
-console.log(sortByID(products));
+// console.log(sortByID(products));
