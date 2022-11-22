@@ -803,10 +803,17 @@ const products = [
   },
 ];
 
-function sortByID(products) {
-  products.forEach((element) => {});
+function sortByID(productsList) {
+  return productsList.reduce((acc, product) => {
+    const index = acc.findIndex((el) => el.id === product.id);
+
+    if (index === -1) {
+      acc.push(product);
+    } else {
+      acc[index].qty += product.qty;
+    }
+    return acc;
+  }, []);
 }
 
-console.log('Before sorting: ', products);
-sortByID(products);
-console.log('After sorting: ', products);
+console.log(sortByID(products));
