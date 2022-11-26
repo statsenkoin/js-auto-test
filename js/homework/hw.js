@@ -46,3 +46,61 @@
 // const getLastCharacter = (arg) => arg[arg.length - 1];
 
 // console.log(getLastCharacter('321433530')); // 0
+
+// ----------------------------------------------------------------------------
+
+// // Створи функцію, яка проводить пошук обєкта в масиві по id та виводить
+// його в консоль.
+//
+// const users = [
+//   { id: 1, name: 'John' },
+//   { id: 2, name: 'Pete' },
+//   { id: 3, name: 'Mary' },
+// ];
+
+// // const foo = (idIn) => users.find(({ id }) => idIn === id);
+// // console.log(foo(2));
+
+// const foo = (idIn) => {
+//   const userById = users.find(({ id }) => idIn === id);
+//   console.log(userById);
+// };
+// foo(1);
+
+// ----------------------------------------------------------------------------
+// // Виведи в консоль стрічку для кожного єлемента масива слідуючого типу:
+// "Имя - позиция в массиве Х и сам массив"
+//
+// const robots = ['Bender', 'Awesom-O', 'Johnny 5'];
+
+// // robots.forEach((el, index, array) => {
+// //   console.log(`Name: ${el}, index: ${index}, array: `, array);
+// // });
+
+// const findElById = (el, index, array) => {
+//   console.log(`Name: ${el}, index: ${index}, array: `, array);
+// };
+// robots.forEach(findElById);
+// ----------------------------------------------------------------------------
+
+// // Напиши ф-цію positiveSum, яка приймає масив чисел та повертає їх суму.
+// // Але рахуватись мають лише позитивні числа!!!
+
+// const positiveSum = (arr) => {
+//   let sum = arr.reduce((acc, arrEl) => {
+//     if (arrEl > 0) return acc + arrEl;
+//     return acc;
+//   }, 0);
+//   console.log(sum);
+// };
+
+// const positiveSum = (arr) => {
+//   //   let sum = arr.reduce((acc, arrEl) => (arrEl > 0 ? acc + arrEl : acc), 0);
+//   //   console.log(sum);
+
+//   console.log(arr.reduce((acc, arrEl) => (arrEl > 0 ? acc + arrEl : acc), 0));
+// };
+
+// positiveSum([2, 4, 6, 8]); // 20
+// positiveSum([0, -3, 5, 7]); // 12
+// ----------------------------------------------------------------------------
