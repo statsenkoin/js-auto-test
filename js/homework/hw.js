@@ -104,3 +104,16 @@
 // positiveSum([2, 4, 6, 8]); // 20
 // positiveSum([0, -3, 5, 7]); // 12
 // ----------------------------------------------------------------------------
+
+// // Напиши ф-цію, яка фільтрує масив та повертає елементи, окрім того,
+// що був переданий в дану функцію в якості аргумента.
+//
+const animals = ['pigs', 'goats', 'sheep'];
+
+const foo = (arg, arr) => arr.filter((el) => arg !== el);
+
+// const foo = (arg, arr) => {
+//   return arr.filter((el) => el.localeCompare(arg));
+// };
+
+console.log(foo('pigs', animals)); // ["goats", "sheep"]
