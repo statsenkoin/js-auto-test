@@ -177,7 +177,9 @@ function customForEach(array, callback) {
 function customMap(array, callback) {
   let innerArr = [];
   for (let i = 0; i < array.length; i += 1) {
-    innerArr.push(callback(array[i], i, array));
+    if (array[i] && (!undefined || !null || !isNaN(array[i]))) {
+      innerArr[i] = callback(array[i], i, array);
+    }
   }
   return innerArr;
 }
@@ -205,6 +207,27 @@ function customMap(array, callback) {
   // const namesScore = customMap(students, (student) => student.score);
   // console.log('names:>> ', names); // ['Манго', 'Полі', 'Аякс', 'Ківі', 'Х'юстон']
   // console.log('namesScore:>> ', namesScore); // [83, 59, 37, 94, 64]
+}
+{
+  // const arr = [1, 2, , undefined, null, 5];
+  // console.log('arr :>> ', arr);
+  // console.log('arr[3] :>> ', arr[3]);
+  // console.log('arr[2] :>> ', arr[2]);
+  // console.log('arr[4] :>> ', arr[4]);
+  // console.log('arr[2] === underfind :>> ', arr[2] === undefined);
+  // --------------------------------------------------------------
+  const planets = ['Земля', 'Марс', , undefined, null, 'Венера', 'Юпітер'];
+  // const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
+  // console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', , , , 'ВЕНЕРА', 'ЮПІТЕР']
+  // console.log('planetsInUpperCase.length :>> ', planetsInUpperCase.length);
+  const planetsInUpperCaseCustom = customMap(planets, (planet) =>
+    planet.toUpperCase()
+  );
+  console.log(planetsInUpperCaseCustom); // ['ЗЕМЛЯ', 'МАРС', , , , 'ВЕНЕРА', 'ЮПІТЕР']
+  console.log(
+    'planetsInUpperCaseCustom.length :>> ',
+    planetsInUpperCaseCustom.length
+  );
 }
 
 function customFlatMap(array, callback) {
@@ -312,16 +335,3 @@ function customFindIndex(array, callback) {
   // console.log('foundPlanet :>> ', foundPlanet);
   // console.log('foundPlanetIndex :>> ', foundPlanetIndex);
 }
-
-const arr = [1, 2, , undefined, null, 5];
-console.log('arr :>> ', arr);
-console.log('arr[3] :>> ', arr[3]);
-console.log('arr[2] :>> ', arr[2]);
-console.log('arr[4] :>> ', arr[4]);
-console.log('arr[2] === underfind :>> ', arr[2] === undefined);
-
-const planets = ['Земля', 'Марс', , , , 'Венера', 'Юпітер'];
-
-const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
-console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', , undefined, null, 'ВЕНЕРА', 'ЮПІТЕР']
-console.log('planetsInUpperCase.length :>> ', planetsInUpperCase.length);
