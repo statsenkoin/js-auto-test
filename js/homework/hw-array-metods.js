@@ -147,31 +147,6 @@ function customForEach(array, callback) {
     callback(array[i], i, array);
   }
 }
-
-function customMap(array, callback) {
-  let innerArr = [];
-  for (let i = 0; i < array.length; i += 1) {
-    innerArr.push(callback(array[i], i, array));
-  }
-  return innerArr;
-}
-
-function customFlatMap(array, callback) {
-  let innerArr = [];
-  for (let i = 0; i < array.length; i += 1) {
-    innerArr = [...innerArr, ...callback(array[i], i, array)];
-  }
-  return innerArr;
-}
-
-function customFilter(array, callback) {
-  let innerArr = [];
-  for (let i = 0; i < array.length; i += 1) {
-    if (callback(array[i], i, array)) innerArr.push(array[i]);
-  }
-  return innerArr;
-}
-
 // customForEach
 {
   // const arr = [1, 8, 5];
@@ -199,6 +174,14 @@ function customFilter(array, callback) {
   // }
 }
 
+function customMap(array, callback) {
+  let innerArr = [];
+  for (let i = 0; i < array.length; i += 1) {
+    innerArr.push(callback(array[i], i, array));
+  }
+  return innerArr;
+}
+
 // customMap
 {
   // const planets = ['Земля', 'Марс', 'Венера', 'Юпітер'];
@@ -224,6 +207,14 @@ function customFilter(array, callback) {
   // console.log('namesScore:>> ', namesScore); // [83, 59, 37, 94, 64]
 }
 
+function customFlatMap(array, callback) {
+  let innerArr = [];
+  for (let i = 0; i < array.length; i += 1) {
+    innerArr = [...innerArr, ...callback(array[i], i, array)];
+  }
+  return innerArr;
+}
+
 // customFlatMap
 {
   // const students = [
@@ -237,6 +228,14 @@ function customFilter(array, callback) {
   // const allCourses = customFlatMap(students, (student) => student.courses);
   // console.log('allCourses :>> ', allCourses);
   // // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
+}
+
+function customFilter(array, callback) {
+  let innerArr = [];
+  for (let i = 0; i < array.length; i += 1) {
+    if (callback(array[i], i, array)) innerArr.push(array[i]);
+  }
+  return innerArr;
 }
 
 // customFilter
@@ -289,3 +288,40 @@ function customFilter(array, callback) {
   // );
   // console.log('uniqueCourses:>> ', uniqueCourses);
 }
+
+function customFind(array, callback) {
+  for (let i = 0; i < array.length; i += 1) {
+    if (callback(array[i], i, array)) return array[i];
+  }
+}
+function customFindIndex(array, callback) {
+  for (let i = 0; i < array.length; i += 1) {
+    if (callback(array[i], i, array)) return i;
+  }
+}
+// customFind and customFindIndex
+{
+  // const planets = ['Земля', 'Марс', 'Венера', 'Юпітер'];
+  // const planet = 'Венера';
+  // const foundPlanet = customFind(planets, (item) => {
+  //   return item === planet;
+  // });
+  // const foundPlanetIndex = customFindIndex(planets, (item) => {
+  //   return item === planet;
+  // });
+  // console.log('foundPlanet :>> ', foundPlanet);
+  // console.log('foundPlanetIndex :>> ', foundPlanetIndex);
+}
+
+const arr = [1, 2, , undefined, null, 5];
+console.log('arr :>> ', arr);
+console.log('arr[3] :>> ', arr[3]);
+console.log('arr[2] :>> ', arr[2]);
+console.log('arr[4] :>> ', arr[4]);
+console.log('arr[2] === underfind :>> ', arr[2] === undefined);
+
+const planets = ['Земля', 'Марс', , , , 'Венера', 'Юпітер'];
+
+const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
+console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', , undefined, null, 'ВЕНЕРА', 'ЮПІТЕР']
+console.log('planetsInUpperCase.length :>> ', planetsInUpperCase.length);
